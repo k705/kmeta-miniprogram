@@ -1,0 +1,129 @@
+/* pages/world/world.wxss */
+page {
+  /* width: 100% !important;
+  height: 100% !important; */
+  font-family: HarmonyOS_Sans_SC;
+}
+
+.logisticsCompany {
+  width: 100%;
+  position: fixed;
+  height: 100.64rpx;
+  top: 50rpx;
+  /* background-color: aqua; */
+  color: rgba(255, 255, 255, 1);
+  font-size: 26.92rpx;
+
+}
+
+.logisticsCompany_inn {
+  /* margin-top: 50rpx; */
+  /* background-color: rgb(255, 251, 0); */
+
+}
+
+.line {
+  position: fixed;
+  width: 100%;
+  top: 201rpx;
+  border-bottom: 2rpx solid rgba(224, 253, 249, .1);
+}
+
+.routes {
+  position: fixed;
+  top: 251rpx;
+  height: 966rpx;
+  /* background-color: aqua; */
+  /* margin-top: 50rpx; */
+}
+
+.routes_item {
+  /* position: relative; */
+  width: 616rpx;
+  /* height: 143rpx; */
+  border-left: 1rpx solid rgba(102, 102, 102, 1);
+  margin-left: 51rpx;
+  align-items: flex-start;
+  /* background-color: aquamarine; */
+}
+
+.bullet_line {
+  width: 6px;
+  /* 原点和竖线的宽度 */
+  height: 100%;
+  /* 竖线的高度 */
+  background-color: #333;
+  /* 竖线的颜色 */
+  position: relative;
+}
+
+.bullet_line::before {
+  content: '';
+  width: 19.23rpx;
+  /* 原点的宽度 */
+  height: 19.23rpx;
+  /* 原点的高度 */
+  background-color: rgba(102, 102, 102, 1);
+  /* 原点的颜色 */
+  border-radius: 50%;
+  /* 圆形 */
+  position: absolute;
+  top: 0;
+  left: -11rpx;
+}
+
+.routes_item:first-child .bullet_line::before {
+  background-color: rgba(79, 177, 239, 1)
+}
+
+.content {
+  flex: 1;
+  /* 撑满剩余空间 */
+  /* background-color: aquamarine; */
+  /* border: 1rpx solid red; */
+  margin-top: -5rpx;
+}
+
+.acceptTime {
+  margin-left: 21rpx;
+  color: rgba(102, 102, 102, 1);
+  font-size: 30.77rpx;
+  /* margin-top: 37rpx; */
+}
+
+.highlight {
+  color: rgba(79, 177, 239, 1);
+  /* 高亮颜色 */
+}
+
+.remark {
+  margin-left: 21rpx;
+  margin-top: 13rpx;
+  color: rgba(102, 102, 102, 1);
+  font-size:
+    23.08rpx;
+  margin-bottom: 37rpx;
+}
+
+.foot {
+  position: fixed;
+  bottom: 0rpx;
+  height: 176rpx;
+  width: 90%;
+  /* margin-top: 61rpx; */
+  /* background-color: aquamarine; */
+  /* margin-top: 51rpx; */
+  border-top: 2rpx solid rgba(224, 253, 249, .1);
+  color: rgba(255, 255, 255, 1);
+  font-size:
+    23.08rpx;
+
+}
+
+.foot_icon {
+  width: 50.31rpx;
+  height: 42.31rpx;
+  background-color: rgba(79, 177, 239, .3);
+  border-radius: 50%;
+  color: rgba(79, 177, 239, 1);
+}

@@ -1,0 +1,5 @@
+<view class="container">
+        <image class="img" 
+        style="transform: rotate3d(0, 1, 0, {{x}}deg)"
+        src="https://image.kmeta.world/applet/images/invite/bac.png"></image>
+</view>

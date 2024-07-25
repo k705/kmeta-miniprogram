@@ -1,0 +1,1014 @@
+/**index.wxss**/
+page {
+  width: 100% !important;
+  height: 100% !important;
+  font-family: HarmonyOS_Sans_SC;
+}
+
+/* 新手引导 */
+.newpeople_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  /* 确保蒙层在卡片之下 */
+}
+
+.newmodal1 {
+  z-index: 2;
+  width: 400rpx;
+  height: 205rpx;
+  position: fixed;
+  left: 40%;
+  top: 50%;
+}
+
+.newmodal2 {
+  z-index: 3;
+  width: 389rpx;
+  height: 310rpx;
+  position: fixed;
+  left: 142rpx;
+  /* top: 75%; */
+  bottom: 130rpx;
+}
+
+.newmodal3 {
+  z-index: 3;
+  width: 390rpx;
+  height: 250rpx;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  /* top: 75%; */
+  bottom: 257rpx;
+}
+
+.newmodal4 {
+  z-index: 4;
+  width: 389.74rpx;
+  height: 364.74rpx;
+  position: fixed;
+  right: 80rpx;
+  /* top: 75%; */
+  bottom: 90rpx;
+}
+
+.firstOre {
+  z-index: 2;
+  width: 152rpx;
+  height: 135rpx;
+  position: fixed;
+  left: 55%;
+  top: 35%;
+}
+
+/* 授权 隐私*/
+.modal-container1 {
+  position: absolute;
+  bottom: 0;
+  z-index: 1001;
+  width: 100%;
+  height: 755rpx;
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  background-color: rgb(255, 255, 255);
+
+  /* transform: translateY(500rpx); */
+}
+
+.modal-content1 {
+  width: 648rpx;
+  height: 569rpx;
+
+}
+
+.modal-content1 .box1 {
+  height: 47rpx;
+  /* background-color: #9b9939; */
+  font-size: 43rpx;
+  color: rgba(0, 0, 0, 1);
+  font-weight: normal;
+  /* margin-left: 23rpx; */
+}
+
+
+.modal-content1 .box1 .text1 {
+  font-size: 43rpx;
+  color: rgba(0, 0, 0, 1);
+  font-weight: normal;
+  margin-left: 23rpx;
+}
+
+.modal-content1 .box2 {
+  line-height: 1.5;
+  font-size: 29.49rpx;
+  width: 617rpx;
+  color: rgba(102, 102, 102, 1);
+  margin-top: 64rpx;
+  /* background-color: #9b9939; */
+}
+
+.modal-content1 .box3 {
+  width: 100%;
+  height: 30rpx;
+  font-size: 27rpx;
+  margin-top: 30rpx;
+  color: rgba(88, 96, 140, 1);
+  /* background-color: #9b9939; */
+  /* border-bottom: 1px solid rgb(0, 0, 0, .2); */
+  /* 添加底部边框 */
+
+}
+
+
+
+
+.modal-content1 .box4 {
+  height: 96rpx;
+  /* background-color: #9b9939; */
+}
+
+.modal-content1 .box5 {
+  margin-top: 60rpx;
+  width: 647rpx;
+  height: 84rpx;
+
+}
+
+.modal-content1 .box6 {
+  width: 647rpx;
+  height: 84rpx;
+  margin-top: 27rpx;
+  color: rgba(102, 105, 145, 1);
+  font-size: 30rpx;
+
+  /* background-color: #9b9939; */
+}
+
+/* 按钮 */
+
+
+.gradient-background {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #8b24ff, #20e2ff);
+  border: none;
+  /* 可选，去掉按钮的默认边框 */
+  color: #fff;
+  /* 可选，设置按钮文字颜色为白色 */
+  border-radius: 38rpx;
+  font-size: 30rpx;
+}
+
+/* 授权 昵称*/
+.modal-container {
+  position: absolute;
+  bottom: 0;
+  z-index: 1001;
+  width: 100%;
+  height: 858rpx;
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  background-color: rgba(255, 255, 255, 1);
+
+  /* transform: translateY(500rpx); */
+}
+
+.modal-content {
+  width: 648rpx;
+  height: 705rpx;
+
+}
+
+.modal-content .box1 {
+  height: 47rpx;
+  /* background-color: #9b9939; */
+}
+
+.modal-content .box1 .logo {
+  height: 47rpx;
+  width: 47rpx;
+  border-radius: 50%;
+
+}
+
+.modal-content .box1 .text1 {
+  font-size: 32.05rpx;
+  color: rgba(0, 0, 0, 1);
+  font-weight: normal;
+  margin-left: 23rpx;
+}
+
+.modal-content .box2 {
+  font-size: 36rpx;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 64rpx;
+  /* background-color: #9b9939; */
+}
+
+.modal-content .box3 {
+  height: 96rpx;
+  margin-top: 60rpx;
+  /* background-color: #9b9939; */
+  border-bottom: 1px solid rgb(0, 0, 0, .2);
+  /* 添加底部边框 */
+}
+
+.modal-content .box3 .ava {
+  width: 80rpx;
+  /* height: 34rpx; */
+  font-size: 36rpx;
+  color: rgba(0, 0, 0, 1);
+  /* background-color: #20e2ff; */
+}
+
+.avainput {
+  flex: 1;
+  margin-left: 30rpx;
+  /* background-color: #30c237; */
+}
+
+.modal-content .box3 .img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 170rpx;
+}
+
+.modal-content .box3 .img::after {
+  border: none;
+}
+
+.modal-content .box3 image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  /* margin-left: 30rpx;
+  
+  background-color: #8b24ff; */
+}
+
+.modal-content .box3 .btn1 {
+  /* background-color: #42d662; */
+  width: 30rpx;
+  height: 30rpx;
+  /* position: absolute;
+ right: 70rpx; */
+  /* border: none;  */
+  /* 可选，去掉按钮的默认边框 */
+  /* background-color: none; */
+  /* background-color: #8b24ff; */
+}
+
+/* .modal-content .box3 .btn1 image {
+  width: 11rpx;
+  height: 22rpx;
+} */
+
+.modal-content .box3 .btn2 {
+  /* background-color: #42d662; */
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  right: 70rpx;
+  border: 1rpx solid rgb(0, 0, 0, 0);
+  /* 可选，去掉按钮的默认边框 */
+  background-color: rgb(0, 0, 0, 0);
+}
+
+.modal-content .box4 {
+  height: 96rpx;
+  /* background-color: #9b9939; */
+}
+
+.modal-content .box5 {
+  margin-top: 92rpx;
+  width: 647rpx;
+  height: 84rpx;
+
+}
+
+.modal-content .box6 {
+  width: 647rpx;
+  height: 84rpx;
+  margin-top: 27rpx;
+  color: rgba(102, 105, 145, 1);
+  font-size: 30rpx;
+
+  /* background-color: #9b9939; */
+}
+
+/* 按钮 */
+
+
+.gradient-background {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #8b24ff, #20e2ff);
+  border: none;
+  /* 可选，去掉按钮的默认边框 */
+  color: #fff;
+  /* 可选，设置按钮文字颜色为白色 */
+  border-radius: 38rpx;
+  font-size: 30rpx;
+}
+
+/* 星球列表 */
+.list {
+  height: 100vh;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  background-color: #eee;
+  /* justify-content: space-evenly; */
+}
+
+/* .scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+} */
+
+/* 根据微信导航栏高度调整，通常是44px */
+/* cover-view {
+  margin-top: 44px;  
+  width: 100%;
+  height: 100%;
+} */
+
+
+/* 隐藏滚动条 */
+/* .scroll-view {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; 
+} */
+swiper,
+swiper-item {
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+
+  z-index: 1000;
+  /* 确保蒙层在卡片之下 */
+}
+
+.BigScorecard_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1001;
+  /* 确保蒙层在卡片之下 */
+}
+
+.btn_out {
+  z-index: 1001;
+  margin-top: 50rpx;
+  width: 198rpx;
+  /* background-color: aqua; */
+  margin-left: 187rpx;
+}
+
+.btn {
+  background-size: cover;
+  background-position: center;
+  width: 58rpx;
+  height: 58rpx;
+}
+
+.card_out {
+  z-index: 1001;
+  /* 确保卡片在蒙层之上 */
+  position: absolute;
+  width: 545rpx;
+  height: 457rpx;
+  top: 49%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  background-position: center;
+  /* background-color: #20e2ff; */
+}
+
+
+.card {
+  height: 314rpx;
+  width: 545rpx;
+  background-size: cover;
+  background-position: center;
+  /* background-color: rgb(166, 201, 71); */
+}
+
+.card .boxout {
+  /* position: relative;
+  left: 50%;
+  top: 82rpx;
+  transform: translate(-50%, 0); */
+  height: 161rpx;
+  width: 100%;
+  /* background-color: #7fb817; */
+
+}
+
+.cardsurebtn {
+  /* position: relative;
+  left: 50%;
+  top: 82rpx;
+  transform: translate(-50%, 0); */
+  height: 99rpx;
+  width: 146rpx;
+  margin-top: 44rpx;
+  /* background-color: #7fb817; */
+
+}
+
+.card .box1 {
+  font-size: 27rpx;
+  color: rgba(255, 255, 255, 1);
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.8);
+  font-family: HarmonyOS_Sans_SC_Bold;
+  /* background-color: #212397; */
+  margin-top: 20rpx;
+  /* font-family: HarmonyOS_Sans_SC_Black; */
+  text-shadow:
+    /* 0 0 3rpx #fffecc, */
+    /* 内发光效果，大小为5px */
+    /* 0 0 1rpx rgba(0, 168, 255, 0.6), */
+    /* 外发光效果，大小为10px */
+    0 0 60rpx rgba(0, 168, 255, 0.6);
+  /* 投影效果，大小为40px */
+}
+
+.card .box2 {
+  margin-top: 33rpx;
+}
+
+
+
+
+.BigScorecard_out {
+  z-index: 1003;
+  /* 确保卡片在蒙层之上 */
+  position: absolute;
+  height: 750rpx;
+  width: 657rpx;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  background-position: center;
+  /* background-color: #20e2ff; */
+}
+
+.BigScorecard_out {
+  /* height: 719rpx;
+  width: 657rpx; */
+  font-size: 72rpx;
+  color: rgba(255, 255, 255, 1);
+  font-family: HarmonyOS_Sans_SC_Black;
+  text-shadow:
+    0 0 6rpx #fffecc,
+    /* 内发光效果，大小为5px */
+    /* 0 0 20rpx rgba(170, 170, 170, 0.6), */
+    /* 外发光效果，大小为10px */
+    0 0 60rpx #306dc6;
+  /* 投影效果，大小为40px */
+}
+
+.BigScorecard {
+  height: 662rpx;
+  width: 657rpx;
+  background-size: cover;
+  background-position: center;
+  /* background-color: aqua; */
+}
+
+.BigScorecard2 {
+  /* position: relative; */
+  /* left: 430rpx; */
+  /* bottom: 35rpx; */
+  height: 64rpx;
+  width: 64rpx;
+  background-size: cover;
+  background-position: center;
+  /* background-color: aqua; */
+
+  margin-top: -90rpx;
+}
+
+
+.tex {
+  width: 315rpx;
+  height: 129rpx;
+}
+
+.card_out_goApp {
+  z-index: 1001;
+  /* 确保卡片在蒙层之上 */
+  position: absolute;
+  width: 578rpx;
+  height: 691rpx;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  background-position: center;
+  /* background-color: #20e2ff; */
+}
+
+.card_goApp {
+  height: 565rpx;
+  width: 578rpx;
+  background-size: cover;
+  background-position: center;
+  /* background-color: aqua; */
+}
+
+.card1 {
+  position: relative;
+  left: 430rpx;
+  top: 43rpx;
+  height: 33rpx;
+  width: 33rpx;
+  background-size: cover;
+  background-position: center;
+}
+
+.card2 {
+  width: 257rpx;
+  height: 68rpx;
+  margin-top: 58rpx;
+
+  /* background-color: #8b24ff; */
+}
+
+.card2 .K {
+  font-size: 38rpx;
+  background: -webkit-linear-gradient(rgba(247, 150, 255, 1), rgba(0, 204, 255, 1));
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.card3 {
+  margin-top: 30rpx;
+  width: 245rpx;
+  height: 67rpx;
+  color: #FFFFFFFF;
+  font-size: 25rpx;
+}
+
+.card3_1 {
+  width: 180rpx;
+  height: 64rpx;
+  background-color: rgba(79, 177, 239, 1);
+  border-radius: 10rpx;
+}
+
+.card3_2 {
+  width: 128rpx;
+  height: 64rpx;
+  background-color: rgba(79, 177, 239, .1);
+  border-radius: 10rpx;
+  margin-left: 38rpx;
+}
+
+/* 矿石 */
+.ore {
+  width: 70rpx;
+  height: 70rpx;
+  margin: 15rpx;
+  /* background-color: rgb(214, 156, 68); */
+}
+
+.ore image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.ore_bigout {
+  /* position: absolute;  */
+  /* top: 12%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 92%; 
+  height: 73%; */
+
+  /* top: 30rpx;
+  left: 30rpx;
+  width: calc(100% - 60rpx); 
+  height: calc(100% - 60rpx); z-index: 999; */
+  /* background-color: #3bb9c2; */
+
+
+}
+
+.ore_out {
+  /* background-color: aqua; */
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  z-index: 9;
+
+  /* margin-top: 150rpx; */
+
+}
+
+.animated-element {
+
+  text-shadow: 0px 15px 30px rgba(32, 38, 50, 0.600000);
+
+  overflow-wrap: break-word;
+  color: rgba(255, 255, 255, 1);
+  font-size: 51rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-weight: normal;
+  /* font-weight: bold; */
+}
+
+/* 星球背景 */
+.background {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* 排行榜 */
+.rank-bar {
+  position: fixed;
+  top: 7%;
+  left: 0;
+  margin-left: 40rpx;
+  width: 257rpx;
+  height: 63rpx;
+  display: flex;
+  align-items: center;
+  /* background-position: center; */
+  /* background-color: rgba(255, 255, 255, 0.2); */
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10rpx;
+}
+
+.rank-elementPic {
+  margin-left: 25rpx;
+  /* 距左侧 60rpx */
+  margin-left: 28rpx;
+  width: 45rpx;
+  height: 45rpx;
+
+}
+
+.rank-elementPic image {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.rank-elementText {
+  font-weight: bold;
+  color: #FFFFFFFF;
+  font-size: 23rpx;
+  margin-left: 28rpx;
+  text-shadow: 0 0 5rpx rgba(10, 9, 9, 0.5);
+  /* 设置文字投影，可以根据需要调整位置和颜色 */
+  /* z-index: 1; */
+}
+
+/* 倒计时  */
+.countdown {
+  position: fixed;
+  top: 10.5%;
+  right: 13rpx;
+  width: 100%;
+  height: 53rpx;
+  /* background-color: red; */
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
+.countdown_inner2 {
+  display: flex;
+
+  /* align-items: flex-end; */
+  width: 185rpx;
+  height: 53rpx;
+  /* background-color: rgb(24, 121, 80); */
+}
+
+.calendar {
+  color: rgba(255, 255, 255, 1);
+  text-shadow:
+    0 0 2rpx #fffecc,
+    /* 内发光效果，大小为5px */
+    0 0 20rpx rgba(170, 170, 170, 0.6),
+    /* 外发光效果，大小为10px */
+    0 0 40rpx rgba(9, 23, 52, 0.6);
+  /* 投影效果，大小为40px */
+  position: fixed;
+  top: 16%;
+  left: 0;
+  width: 100%;
+  height: 72rpx;
+  /* background-color: rgb(191, 69, 196); */
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
+/* 兑换弹框 */
+.exchange {
+  position: fixed;
+  bottom: 226rpx;
+  right: 20rpx;
+  /* transform: translate(-50%, 0); */
+  /* margin: 0 auto; */
+  width: 270rpx;
+  height: 471rpx;
+  /* background-color: rgba(0, 0, 0, .6); */
+  border-radius: 10rpx;
+  z-index: 1000;
+}
+
+.exchangecontent {
+
+  width: 321rpx;
+  height: 423rpx;
+  /* background-color: rgba(0, 0, 0, .6); */
+  border-radius: 10rpx;
+}
+
+.exchangecontent1 {
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 27rpx;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 30rpx;
+
+}
+
+.exchangecontent2 {
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 27rpx;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 8rpx;
+
+}
+
+.exchangecontent3 {
+  width: 270rpx;
+  height: 300rpx;
+  margin-top: 18rpx;
+}
+
+.exchangebtn {
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 32rpx;
+  color: rgba(255, 255, 255, 1);
+  width: 202rpx;
+  height: 84rpx;
+  /* background-color: rgba(7, 146, 244, .6); */
+  /* border-radius: 0 0 10rpx 10rpx; */
+  position: absolute;
+  bottom: 20rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.exchangeclose {
+  position: absolute;
+  right: -3rpx;
+  top: -6rpx;
+  height: 33rpx;
+  width: 33rpx;
+  background-size: cover;
+  background-position: center;
+}
+
+/* 挖完弹出框 */
+.countdown_inner {
+  width: 250rpx;
+  height: 53rpx;
+  /* background-color: rgb(24, 121, 80); */
+}
+
+.countdown_innerleft {
+  width: 83rpx;
+  height: 83rpx;
+  margin-top: -15rpx;
+  /* background-color: rgb(197, 162, 65); */
+}
+
+.countdown_innerleft image {
+  width: 83rpx;
+  height: 83rpx;
+}
+
+.countdown_innerright {
+  text-shadow:
+    0 0 3rpx #fffecc,
+    /* 内发光效果，大小为5px */
+    0 0 10rpx rgba(170, 170, 170, 0.6),
+    /* 外发光效果，大小为10px */
+    0 0 40rpx rgba(9, 23, 52, 0.6);
+  /* 投影效果，大小为40px */
+  /* text-shadow: 0px 0px 40px rgba(9,23,52,0.600000); */
+  width: 162rpx;
+  height: 53rpx;
+  line-height: 53rpx;
+  overflow-wrap: break-word;
+  color: rgba(255, 255, 255, 1);
+  font-size: 23rpx;
+  margin-left: -10rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  /* background-color: #20e2ff; */
+
+}
+
+/* 赚和花 */
+.foot {
+  position: fixed;
+  bottom: 40rpx;
+  left: 0;
+  /* transform: translate(-50%, 0); */
+  margin: 0 auto;
+  width: 100%;
+  height: 167rpx;
+/* justify-content: flex-start; */
+  /* background-color: rgb(52, 179, 79); */
+}
+
+.foot_left {
+  position: relative;
+  width: 346rpx;
+  height: 243rpx;
+  background-color: rgba(0, 0, 0, 0);
+  /* background-color: rgba(174, 201, 54, 1); */
+}
+
+.foot_left_btn {
+  position: relative;
+  width: 346rpx;
+  height: 243rpx;
+  background-color: rgba(0, 0, 0, 0);
+  /* background-color: rgba(174, 201, 54, 1); */
+}
+
+.foot_out1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: #20e2ff; */
+}
+
+.foot_up {
+  width: 100%;
+  height: 32rpx;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: #20e2ff; */
+
+  /* #000000 透明度 30% */
+  border-radius: 9.62rpx 9.62rpx 0 0;
+  /* 圆角设置 */
+}
+
+.foot_up_text {
+  color: #DCE3E5FF;
+  margin-left: 240rpx;
+  font-size: 19rpx;
+  z-index: 1;
+}
+
+.foot_up_textright {
+  color: #DCE3E5FF;
+  margin-left: 250rpx;
+  font-size: 19rpx;
+  z-index: 1;
+}
+
+.foot_down {
+  width: 100%;
+  height: 135rpx;
+  background-color: rgba(118, 118, 118, 0.3);
+  /* background-color: #20e2ff; */
+
+  /* #000000 透明度 30% */
+  border-radius: 0 0 9.62rpx 9.62rpx;
+  /* 圆角设置 */
+}
+
+.foot_down_in {
+  width: 306rpx;
+  height: 120rpx;
+  /* background-color: rgba(79, 177, 239, 1); */
+}
+
+.foot_down_text {
+  color: #DCE3E5FF;
+  font-size: 20rpx;
+  margin-left: 80rpx;
+  margin-top: 36rpx;
+  /* background-color: salmon; */
+}
+
+.foot_down_num {
+  position: absolute;
+  top: 122rpx;
+  left: 200rpx;
+  width: 160rpx;
+  height: 38rpx;
+  /* margin-left: 165rpx; */
+
+  /* background-color: blueviolet; */
+}
+
+.text1 {
+  color: #7ce5ff;
+  /* 颜色叠加 */
+  text-shadow:
+  /* 0 0 5px rgba(39, 212, 255, 0.4), */
+  /* 内发光效果，大小为5px */
+  0 0 5px rgba(255, 255, 255, 0.4),
+  /* 外发光效果，大小为10px */
+  0 0 30rpx rgba(9, 23, 52, 0.6);
+/* 投影效果，大小为40px */
+/* text-shadow: 0px 0px 40px rgba(9,23,52,0.600000); */
+
+
+  /* text-shadow: 0 0 5px rgba(39, 212, 255, 0.4), 
+  0 0 5px rgba(255, 255, 255, 0.4) inset; */
+  /* 外发光和内发光 */
+  font-size: 27rpx;
+  font-weight: bold;
+  margin-left: 14rpx;
+}
+
+.text2 {
+  color: #DCE3E5FF;
+  font-size: 17rpx;
+  position: absolute;
+  right: 27rpx;
+}
+
+/* .foot_out2 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+} */
+
+.foot_down_inleft {
+  width: 120rpx;
+  height: 120rpx;
+  background-color: rosybrown;
+  /* position: relative;
+  top: 50%; */
+  /* 上下居中 */
+  /* left: 20rpx;
+  transform: translateY(-50%); */
+  /* 上下居中 */
+  background-color: rgba(0, 0, 0, 0.3);
+  /* #000000 透明度 30% */
+
+  border-radius: 50%;
+  /* 将边框设置为圆形 */
+  border: 2rpx solid rgba(0, 0, 0, 0.3);
+}
+
+.foot_down_inright {
+  width: 161rpx;
+  height: 120rpx;
+  /* background-color: royalblue; */
+}
+
+.foot_down_inleft image {
+  width: 66rpx;
+  height: 67rpx;
+
+}
+
+.foot_right {
+  width: 346rpx;
+  height: 167rpx;
+  background-color: green;
+
+}

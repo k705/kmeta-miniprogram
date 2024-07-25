@@ -1,0 +1,117 @@
+<!--index.wxml-->
+
+
+<view class="contain " style="background-image: url('https://image.kmeta.world/applet/images/blockPrize/bac.png')">
+  <!-- 未中奖弹窗 -->
+  <view class="nft_overlay" wx:if="{{nowin}}"> </view>
+  <view class="close bac pos_xcenter" bind:tap="hideisWin" wx:if="{{nowin}}" style="background-image: url('https://image.kmeta.world/applet/images/goApp/close.png')"></view>
+  <view wx:if="{{nowin}}" class="nowin pos_center bac" style="background-image: url('https://image.kmeta.world/applet/images/decrypt/nowinblockcenter.png')"></view>
+  <!-- 中奖弹窗 -->
+  <view class="nft_overlay" wx:if="{{win}}" hidden="{{isHidden}}"> </view>
+ <view wx:if="{{win}}" hidden="{{isHidden}}" class="close  bac pos_xcenter" bind:tap="onShareImageMenu"  style="background-image: url('https://image.kmeta.world/applet/images/shareIcon.png');left:33%;top: 1190rpx;">
+
+  </view>
+  <!-- <view class="close bac pos_xcenter" bind:tap="saveImg"  style="background-image: url('https://image.kmeta.world/applet/images/downloadIcon.png');top: 1190rpx;">
+  </view> -->
+  <view wx:if="{{win}}" hidden="{{isHidden}}" class="close  bac pos_xcenter" bind:tap="hideWin"  style="background-image: url('https://image.kmeta.world/applet/images/closePrize.png');left:67%;top: 1190rpx;">
+
+  </view> 
+  <!--  -->
+  <canvas  wx:if="{{win}}" hidden="{{isHidden}}"  type="2d" id="myCanvas" class="win pos_xcenter bac" style="background-position: center -30rpx;"></canvas> 
+  <!-- <view  class="win pos_xcenter bac" style="background-image: url('{{prizePic}}');  background-position: center -30rpx; /* 将背景图向上移动50rpx */">
+    <view class="win_foot flex_center">
+      <view class="win_footinn flex">
+        <view class="win_footleft flex_col">
+          <view class="flex_y_center">
+            <view class="ava bac" style="background-image: url('{{avatar}}')"></view>
+            <view class="name">{{name}}</view>
+          </view>
+          <view>
+            <view style="font-size: 26.92rpx;color:rgba(255, 255, 255, 1);font-family:HarmonyOS_Sans_SC_Light;margin-bottom: 12rpx;">赶紧来试试</view>
+            <view style="font-size: 26.92rpx;color:rgba(255, 255, 255, 1);font-family:HarmonyOS_Sans_SC_Light;">你也有机会赢取<text style="font-family:HarmonyOS_Sans_SC_Black;color:rgba(250, 52, 20, 1);">K区块大奖！</text></view>
+          </view>
+        </view>
+        <view class="win_footright flex_col_xcenter">
+          <view style="font-family:HarmonyOS_Sans_SC_Light;color:rgba(255, 255, 255, 1);font-size: 17.95rpx;">长按二维码</view>
+          <view class="qrcode bac" style="background-image: url('{{Wxacode}}')"> </view>
+        </view>
+      </view>
+
+    </view>
+  </view> -->
+  <!-- 主页面 -->
+  <view class="card">
+    <!-- <view class="head"></view> -->
+    <view class="body flex_col">
+      <view class="text1">当前拥有K区块：<text>{{myBlock.length}}</text> 块</view>
+      <view class="block_pic">
+        <scroll-view scroll-x="true" enable-flex="true" scroll-with-animation="true" scroll-into-view="nav-{{select > 0 ? select -1 : select}}">
+          <view wx:for="{{myBlock}}" wx:for-item="blockPrizeItem" wx:key="id" id="nav-{{index}}" class="sort {{index == select ? 'choose' : ''}}" data-index='{{index}}' data-id='{{blockPrizeItem.id}}' data-secretKey='{{blockPrizeItem.secretKey}}' data-state='{{blockPrizeItem.state}}' bindtap="activeTab">
+            <!-- 待开奖 -->
+            <view wx:if="{{blockPrizeItem.state == 1}}">
+              <image wx:if="{{index === select || 0}}" class="image" src="https://image.kmeta.world/applet/images/decrypt/chooseblock.png" />
+              <image wx:else class="image" src="https://image.kmeta.world/applet/images/decrypt/nochooseblock.png" />
+            </view>
+            <!-- 中奖 -->
+            <view wx:if="{{blockPrizeItem.state == 2}}">
+              <image wx:if="{{index === select || 0}}" class="image" src="https://image.kmeta.world/applet/images/decrypt/winblock.png" />
+              <image wx:else class="image" src="https://image.kmeta.world/applet/images/decrypt/winblock.png" />
+            </view>
+            <!-- 未中奖 -->
+            <view wx:if="{{blockPrizeItem.state == 3}}">
+              <image wx:if="{{index === select || 0}}" class="image" src="https://image.kmeta.world/applet/images/decrypt/nowinblock.png" />
+              <image wx:else class="image" src="https://image.kmeta.world/applet/images/decrypt/nowinblock.png" />
+
+            </view>
+
+          </view>
+        </scroll-view>
+      </view>
+
+
+      <view class="block">
+        <!-- 左边状态 -->
+        <view class="block_left flex_center bac" style="background-image: url('https://image.kmeta.world/applet/images/decrypt/blockleft.png')">
+          <!-- 3-解密待开始 4-解密中 -->
+          <view class="block_leftinn" wx:if="{{ (state == 1)}}">
+            <view>爆块K区块密钥：</view>
+            <view style="display: flex;justify-content: space-between;">
+              <view style="display: {{start ? 'flex' : 'none'}}" class="secret flex_center down" wx:for="{{mysecretKeyArray}}" wx:for-item="mysecretKeyItem" wx:key="index">
+                {{mysecretKeyItem}}
+              </view>
+              <view style="display: {{!start ? 'flex' : 'none'}}" class="secret flex_center down" wx:for="{{secretKeyArray}}" wx:for-item="secretKeyItem" wx:key="index">
+
+              </view>
+            </view>
+            <view style="margin-top: 38rpx;">我的K区块密钥：</view>
+            <view style="display: flex;justify-content: space-between;">
+              <view class="secret flex_center down" wx:for="{{secretKeyArray}}" wx:for-item="secretKeyItem" wx:key="index">
+                {{secretKeyItem}}
+              </view>
+            </view>
+          </view>
+          <!-- 3-解密待开始 4-解密中  -->
+          <view class="block_leftinn flex_center" wx:if="{{ (state == 2||state == 3)}}">
+            <!-- 中奖 -->
+            <image wx:if="{{state == 2}}" class="winblockcenter" src="https://image.kmeta.world/applet/images/decrypt/winblockcenter.png" mode="" />
+            <!-- 未中奖 -->
+            <image wx:if="{{state == 3}}" class="nowinblockcenter" src="https://image.kmeta.world/applet/images/decrypt/nowinblockcenter.png" mode="" />
+          </view>
+        </view>
+        <!-- 右边状态 -->
+        <view class="block_right bac flex_center" style="background-image: url('https://image.kmeta.world/applet/images/decrypt/blockright.png')">
+          <view wx:if="{{state==1}}" class="chooseblock bac" style="background-image: url('https://image.kmeta.world/applet/images/decrypt/chooseblock.png')" mode="" />
+          <view wx:if="{{state==2}}" class="chooseblock bac" style="background-image: url('https://image.kmeta.world/applet/images/decrypt/winblock.png')" mode="" />
+          <view wx:if="{{state==3}}" class="chooseblock bac" style="background-image: url('https://image.kmeta.world/applet/images/decrypt/nowinblock.png')" mode="" />
+        </view>
+      </view>
+
+      <view class="winGoTask margin_xcenter flex_center" wx:if="{{state == 2}}" bind:tap="goTask"><text style="text-decoration: underline;">前往K宝兑换奖品</text></view>
+
+      <!--  -->
+      <view class="subBtn flex_center" wx:if="{{state == 1}}" bind:tap="blockPrizeDecrypt">点击解密K区块</view>
+
+    </view>
+  </view>
+
+</view>

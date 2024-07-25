@@ -1,0 +1,128 @@
+{
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "projectname": "miniprogram",
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": false,
+    "bigPackageSizeSupport": true
+  },
+  "libVersion": "3.3.0",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "3d",
+          "pathName": "pages/test1/test1",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "K集",
+          "pathName": "pages/goApp/goApp",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "K宝",
+          "pathName": "pages/task/task",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "物流",
+          "pathName": "pages/logistics/logistics",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "K界",
+          "pathName": "pages/world/world",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "解密",
+          "pathName": "pages/decrypt/decrypt",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "区块大奖抢兑",
+          "pathName": "pages/blockPrize/blockPrize",
+          "query": "id=1762357246260092930&state=2&bizTime=1709568000000",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "收货信息",
+          "pathName": "pages/address/address",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "区块大奖",
+          "pathName": "pages/blockPrize/blockPrize",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "面对面扫码",
+          "pathName": "pages/face/face",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/login/login",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "邀请",
+          "pathName": "pages/invite/invite",
+          "query": "scene=storeCode%3D10003060%26tableNo%3D0001",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "隐私",
+          "pathName": "pages/webview/webview",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "协议",
+          "pathName": "pages/userPrivacy/userPrivacy",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "排行榜",
+          "pathName": "pages/rank/rank",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "探索",
+          "pathName": "pages/home/home",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

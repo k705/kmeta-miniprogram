@@ -1,0 +1,68 @@
+<!--pages/world/world.wxml-->
+
+
+<!--轮播图  indicator-color="rgba(255, 255, 255, .2)" indicator-active-color="rgba(255, 255, 255, 1)"-->
+<!-- -->
+<view class="goHome bac" style="background: url('https://image.kmeta.world/applet/images/world/goHomebtn.png');background-size: 100% 100%;" bind:tap="goHome"></view>
+<view style="background: url('https://image.kmeta.world/applet/images/world/bigbac.png');width: 100%;min-height: 100vh; background-size: cover; background-position: center;">
+
+
+  <!--一、 banner -->
+  <swiper class="swiper" autoplay="{{true}}" indicator-dots="{{flase}}" interval="{{3000}}" circular="{{true}}" duration="{{1000}}" current="{{currentSwiperIndex}}">
+    <block wx:for="{{bannerList}}" wx:key="index">
+      <swiper-item class="bannerItem" bindtap='goLinkUrl' data-id="{{item.id}}" data-linkUrl="{{item.linkUrl}}" wx:for-item="item" wx:for-index="index">
+        <view class="img">
+          <image src="{{item.image}}"></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!--二、 广告位 -->
+  <!-- 多个 -->
+  <view class="displayStyle3" wx:if="{{adList3.length != 0}}">
+    <scroll-view enable-flex="true" scroll-x="true" enhanced="true" show-scrollbar="{{false}}">
+      <view wx:for="{{adList3}}" wx:key="index" class="ad-item" bindtap='goLinkUrl' data-linkUrl="{{item.linkUrl}}">
+        <!-- <image src="{{item.image}}" mode="" /> -->
+        <view class="ad-item_image bac" style="background: url({{item.image}});background-size: 100% 100%;"></view>
+        <view wx:if="{{item.linkUrl=='kmeta://rank-daily'}}" class="displayStyle3_nickname pos_xcenter">{{displayStyle3_nickname}}</view>
+        <view wx:if="{{item.linkUrl=='kmeta://rank-daily'}}" class="displayStyle3_avatar pos_xcenter" style="background: url('{{displayStyle3_avatar}}');background-size: 100% 100%;"></view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 两个 -->
+  <view wx:if="{{adList2.length != 0}}" class="displayStyle1 margin_xcenter flex_between">
+    <view class="displayStyle2_left bac" style="background: url('{{adList2[0].image}}');background-size: 100% 100%;"></view>
+    <view class="displayStyle2_left bac" style="background: url('{{adList2[1].image}}');background-size: 100% 100%;"></view>
+  </view>
+  <!-- 一个 -->
+  <view wx:if="{{adList1.length != 0}}" class="displayStyle1 bac margin_xcenter" style="background: url('{{adList1[0].image}}');background-size: 100% 100%;"></view>
+
+  <!-- 三、 资讯 -->
+  <view class="noticeContainer">
+    <view wx:for="{{noticeList}}" wx:key="index">
+      <view class="noticeItem margin_xcenter flex_y_center" bindtap="goInformationLink" data-linkUrl="{{item.informationLink}}" data-informationid="{{item.id}}">
+        <view class="noticeItem_left" style="background: url({{item.thumbnail}});background-size: 100% 100%;"></view>
+        <view class="noticeItem_right flex_col">
+          <!-- <view class=""> -->
+          <view class="noticeItem_right_top">{{item.title}}</view>
+          <view class="noticeItem_right_center">{{item.contentPreview}}</view>
+          <view class="noticeItem_line"></view>
+          <view class="noticeItem_right_bottom flex_y_center">
+
+            <view> {{item.createTime}}</view>
+            <view style="margin-left: 130rpx;background: url('https://image.kmeta.world/applet/images/world/eyeicon.png');background-size: 100% 100%;width: 28rpx;height: 16rpx;"></view>
+            <view style="margin-left: 18rpx;font-size: 19.23rpx;font-family: HarmonyOS_Sans_SC_Thin;color: rgba(255, 255, 255, .6);"> {{item.pv}}</view>
+          </view>
+          <!-- </view> -->
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <!-- 回到顶部按钮 -->
+  <view style="background: url('https://image.kmeta.world/https://image.kmeta.world/applet/images/world/goTop.png');background-size: 100% 100%;" class="back-to-top" bindtap="backToTop" wx:if="{{showBackToTop}}">
+  </view>
+</view>

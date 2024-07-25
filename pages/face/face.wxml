@@ -1,0 +1,6 @@
+<!--index.wxml-->
+
+
+<canvas type="2d" id="myCanvas" style="width: 100%;height: 94vh;" bindlongpress="saveImg"></canvas>
+<button  class='btn flex_center' catchtap='saveImg'>保存图片到手机分享朋友圈</button>
+

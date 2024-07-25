@@ -1,0 +1,836 @@
+/**index.wxss**/
+page {
+  font-family: HarmonyOS_Sans_SC;
+}
+
+.contain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* height: 1770rpx; */
+  /* 设置页面容器的高度为视窗高度 */
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  /* 确保蒙层在卡片之下 */
+}
+
+.card_out {
+  position: fixed;
+  left: 325rpx;
+  top: 20rpx;
+  width: 293rpx;
+  height: 295rpx;
+  /* background-color: aqua; */
+  z-index: 1000;
+
+}
+
+.card {
+
+  width: 293rpx;
+  height: 187rpx;
+  background-size: cover;
+  background-position: center;
+}
+
+.card_out .btn_out {
+  width: 100%;
+  height: 60rpx;
+  /* background-color: blue; */
+  margin-top: 22rpx;
+}
+
+.Kirabtn {
+  width: 135rpx;
+  height: 42rpx;
+  color: rgba(255, 255, 255, 1);
+  font-size: 25rpx;
+  margin-right: 40rpx;
+  /* background-color: blueviolet; */
+  border: 1rpx rgba(255, 255, 255, 1) solid;
+  border-radius: 27rpx;
+}
+
+/* 头部 */
+.head {
+  position: relative;
+  margin-top: 28rpx;
+  width: 673rpx;
+  height: 394rpx;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20rpx;
+  border: none;
+}
+
+.head_right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 148rpx;
+  height: 61rpx;
+  font-size: 18rpx;
+  color: rgba(255, 255, 255, .7);
+}
+
+.head_out {
+  margin-left: 44rpx;
+  height: 294rpx;
+  width: 100%;
+  color: #FFFFFFFF;
+
+  /* background-color: aqua; */
+}
+
+.text1 {
+  font-size: 27rpx;
+}
+
+.head_score {
+  display: flex;
+  /* align-items: flex-end; */
+  /* align-items: flex-end; */
+  height: 90rpx;
+
+  /* background-color: aquamarine; */
+  /* font-weight: 900; */
+  /* font-family:Arial, Helvetica, sans-serif */
+  /* "Helvetica Neue"，"Helvetica"，"Arial"，"sans-serif" */
+}
+
+.text2 {
+  margin-top: 24rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  /* position: relative;
+top: 24rpx; */
+  font-size: 88rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+
+
+}
+
+.text3 {
+  height: 90rpx;
+  line-height: 180rpx;
+  /* margin-bottom: 35rpx; */
+  margin-left: 10rpx;
+  font-size: 23rpx;
+}
+
+.text4 {
+  margin-top: 50rpx;
+  /* position: relative;
+  top: 50rpx; */
+  font-size: 23rpx;
+}
+
+.head_money {
+  display: flex;
+  margin-top: 20rpx;
+
+  align-items: flex-end;
+  /* font-weight: 900 */
+}
+
+.text5 {
+  height: 64rpx;
+  line-height: 64rpx;
+  font-size: 64rpx;
+  /* font-weight: bold; */
+  font-family: HarmonyOS_Sans_SC_Black;
+
+}
+
+.text6 {
+  font-size: 20rpx;
+  line-height: 40rpx;
+  height: 20rpx;
+  margin-bottom: 20rpx;
+  margin-left: 10rpx;
+}
+
+/* 中间 */
+.hotact {
+  margin-top: 77rpx;
+  height: 50rpx;
+  width: 100%;
+  /* background-color: aqua; */
+}
+
+.hotact image {
+  height: 50rpx;
+  width: 561rpx;
+}
+
+
+
+
+/* 底部 */
+/* 轮播图 */
+.swiper {
+  margin-top: 27rpx;
+border-radius: 20rpx;
+  width: 673.08rpx;
+  height: 307.69rpx;
+  /* margin-top: -50rpx; */
+  /* background-color: blue; */
+}
+.bannerItem {
+  width: 673.08rpx;
+  height: 307.69rpx;
+  top: 0;
+  bottom: 0;
+}
+.img {
+  width: 673.08rpx;
+  height: 307.69rpx;
+}
+
+.img image {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* K宝 */
+.banner {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 80rpx;
+  /* background: rgb(50, 65, 80,1); */
+  color: rgba(255, 255, 255, .2);
+  font-size: 25.64rpx;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  font-family: HarmonyOS_Sans_SC;
+  /* border-top: 1rpx solid #f5f5f5; */
+  /* border-bottom: 1rpx solid #f5f5f5; */
+  z-index: 10;
+}
+
+.banner scroll-view {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  /* background-color: blue; */
+}
+
+.sort {
+  position: relative;
+  display: inline-block;
+  /* font-size: 32rpx; */
+  margin-right: 30rpx;
+  line-height: 80rpx;
+  height: 100%;
+  /* background-color: aqua; */
+}
+
+scroll-view .sort:last-child {
+  margin-right: 0rpx;
+}
+
+.choose {
+  color: rgba(255, 255, 255, 1);
+  font-family: HarmonyOS_Sans_SC_Black;
+}
+
+.line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3rpx;
+  border-radius: 10rpx;
+  background: rgba(255, 255, 255, 1);
+  animation: spread .3s;
+}
+
+@keyframes spread {
+  0% {
+    width: 0;
+    left: 50%;
+  }
+
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
+
+/* 无数据！！！！！！！！！！*/
+
+.no-data {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #999;
+  font-size: 14px;
+}
+
+.no-databox {
+  position: absolute;
+  width: 85.94rpx;
+  height: 97.72rpx;
+}
+
+.exchangeRecord {
+  width: 100%;
+  margin-top: 64rpx;
+  border-radius: 24rpx;
+  position: relative;
+}
+
+.box {
+  margin-top: 30rpx;
+}
+
+/* 区块大奖 */
+.coffee_info {
+  width: 642.95rpx;
+  height:1237.87rpx;
+  position: fixed;
+  top: 60rpx;
+  z-index: 1000;
+  /* background-color: blue; */
+}
+.coffee_info_inn {
+  position: relative;
+  top: 90rpx;
+  left: 68rpx;
+  width: 505.77rpx;
+  height:1057.87rpx;
+  /* background-color: blue; */
+}
+.tutorials{
+  height: 720rpx;
+  margin-top: 21rpx;
+  /* background-color: aquamarine; */
+}
+.tutorialItem{
+  width: 100%;
+  height:512.82rpx;
+  margin-top: 27rpx;
+  /* background-color: rgb(190, 43, 43); */
+}
+.coffee_close {
+  bottom: 100rpx;
+  /* left: 68%; */
+  width: 59.49rpx;
+  height: 59.49rpx;
+  position: fixed;
+  z-index: 1000;
+  /* background-color: aqua; */
+}
+
+.usedCode {
+ /* margin-top: 120rpx; */
+  width: 505.77rpx;
+  height: 280.13rpx;
+  z-index: 1000;
+  /* background-color: aqua; */
+}
+.usedCodeUp {
+  margin-top: 101rpx;
+   width: 429.49rpx;
+   height: 64.1rpx;
+  border-radius: 12.82rpx;
+   background-color: rgba(255, 255, 255, .1);
+     color: rgba(255, 255, 255, 1);
+   font-family:HarmonyOS_Sans_SC_Bold;
+   font-size: 25rpx;
+   user-select:text !important;
+   -webkit-user-select:text !important;
+ }
+ .usedCodeUp_inn{
+  width: 90%;
+  height: 90%;
+  /* background-color: blueviolet; */
+  /* justify-content: space-between;  */
+ }
+ .usedCodeDown {
+  margin-top: 25rpx;
+   width: 179.49rpx;
+   height:51.28rpx;
+  border-radius: 12.82rpx;
+   /* background-color: rgba(7, 146, 244, 1); */
+   color: rgba(255, 255, 255, 1);
+   font-family: HarmonyOS_Sans_SC;
+   font-size: 19.23rpx;
+ }
+.blockPrize {
+  width: 95%;
+  /* height: 327rpx; */
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: aqua; */
+}
+
+.blockPrize_up {
+  position: relative;
+  height: 115.38rpx;
+  border-radius: 10rpx 10rpx 0 0;
+
+}
+
+
+.prizepic_small {
+  /* background-color: aquamarine; */
+  position: absolute;
+  width: 51.28rpx;
+  height: 51.28rpx;
+  left: 25rpx;
+  /* background-color: aqua; */
+}
+
+.pizename {
+  position: absolute;
+  left: 92rpx;
+  color: rgba(255, 255, 255, 1);
+  font-size: 25.64rpx;
+  font-family: HarmonyOS_Sans_SC_Medium;
+  /* background-color: aqua; */
+}
+
+.prizestate {
+  position: absolute;
+  right: 25.64rpx;
+  color: rgba(7, 143, 240, 1);
+  font-size: 20.51rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+}
+
+.blockPrize_down {
+  position: relative;
+  height: 211.54rpx;
+  border-radius: 0 0 20rpx 20rpx;
+}
+
+.prizepic_big {
+  width: 169.87rpx;
+  height: 166.67rpx;
+  margin-left: 20rpx;
+  /* background-color: aqua; */
+}
+
+.prize_right {
+  height: 55%;
+  margin-left: 24rpx;
+  /* background-color: aquamarine; */
+}
+
+.prize_rightname {
+  color: rgba(255, 255, 255, 1);
+  font-size: 20.51rpx;
+  font-family: HarmonyOS_Sans_SC;
+}
+
+.prize_time {
+  color: rgba(244, 247, 255, .4);
+  font-size: 19.23rpx;
+  font-family: HarmonyOS_Sans_SC;
+  margin-top: 19rpx;
+
+}
+
+.prize_key {
+  color: rgba(244, 247, 255, .4);
+  font-size: 20.51rpx;
+  font-family: HarmonyOS_Sans_SC;
+  margin-top: 19rpx;
+}
+
+.goAppBtn {
+  position: absolute;
+  right: 35rpx;
+  bottom: 54rpx;
+  width: 115.38rpx;
+  height: 42.31rpx;
+  background-color: rgba(7, 146, 244, 1);
+  border-radius: 20rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  color: rgba(255, 255, 255, 1);
+  font-size: 23.08rpx;
+}
+
+/* 数字藏品  */
+.nft_down {
+  width: 90%;
+  /* height: 327rpx; */
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+
+  /* background-color: aqua; */
+  justify-content: space-between;
+}
+
+.nft_item {
+  width: 308.97rpx;
+  height: 498.72rpx;
+  margin-bottom: 29rpx;
+  /* margin-right: 29rpx; */
+}
+
+.bigNFTImg {
+  width: 532.05rpx;
+  height: 858.97rpx;
+  position: fixed;
+  top: 17%;
+  z-index: 1000;
+}
+
+.close {
+  position: fixed;
+  top: 12%;
+  left: 80%;
+  z-index: 1000;
+  width: 79.49rpx;
+  height: 79.49rpx;
+  /* background-color: aqua; */
+}
+
+.seeNft {
+  color: rgba(255, 255, 255, 1);
+  font-size: 26.92rpx;
+  font-family: HarmonyOS_Sans_SC;
+  position: fixed;
+  top: 78%;
+  border-bottom: 1px solid rgb(236, 233, 233);
+  /* 添加下划线样式 */
+  z-index: 1000;
+}
+.shareNft {
+  color: rgba(255, 255, 255, 1);
+  font-size: 26.92rpx;
+  font-family: HarmonyOS_Sans_SC;
+  position: fixed;
+  top: 83%;
+  border-bottom: 1px solid rgb(236, 233, 233);
+  /* 添加下划线样式 */
+  z-index: 1000;
+}
+/* .certificate{
+  position: relative;
+  width: 532.05rpx;
+  height: 858.97rpx;
+  position: fixed;
+  top: 17%;
+  z-index: 1000;
+} */
+.certificate_pic {
+  width: 85.9rpx;
+  height: 85.9rpx;
+  position: absolute;
+  top: 122rpx;
+  /* background-color: blue; */
+}
+
+.certificate_line {
+  position: absolute;
+  top: 303rpx;
+  width: 282.05rpx;
+  height: 0.28rpx;
+  border-bottom: 0.8rpx solid rgba(255, 255, 255, .4);
+}
+
+.certificate_info {
+  position: absolute;
+  top: 334rpx;
+  width: 283rpx;
+  height: 245rpx;
+  /* background-color: aqua; */
+}
+
+.certificate_foot {
+  position: absolute;
+  top: 609rpx;
+}
+
+.certificate_info_left {
+  color: rgba(255, 255, 255, .5);
+  font-size: 20.51rpx;
+  font-family: HarmonyOS_Sans_SC;
+}
+
+.certificate_info_right {
+  color: rgba(255, 255, 255, 1);
+  font-size: 20.51rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+}
+
+.certificate_foot {
+  width: 258.41rpx;
+  height: 43.62rpx;
+  font-size: 20.51rpx;
+  color: rgba(255, 255, 255, 1);
+  font-family: HarmonyOS_Sans_SC;
+}
+
+
+/* 第三部分：促销兑换 ！！！！！！！！！！*/
+.goods {
+  height: 100%;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -40rpx;
+  /* background-color: blue; */
+}
+
+.goods_item {
+  /* background-color: aqua; */
+  /* position: relative; */
+}
+
+.goods_up {
+  width: 698.72rpx;
+  height: 269.87rpx;
+  margin-top: 45rpx;
+}
+
+.goods_up_left {
+  width: 33%;
+  height: 224rpx;
+  margin-left: 28rpx;
+  /* background-color: blue; */
+}
+
+.goodsName {
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 26.92rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.goodsName {
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 26.92rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.goodsPicture {
+  width: 219.87rpx;
+  height: 140rpx;
+  /* background-color: blueviolet; */
+  margin-top: 12rpx;
+}
+
+.originalPrice {
+  font-family: HarmonyOS_Sans_SC;
+  font-size:
+    20.51rpx;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 7rpx;
+
+}
+
+.goods_up_right {
+
+  width: 370rpx;
+  height: 197rpx;
+  margin-left: 38rpx;
+  /* background-color: blue; */
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.goodsAmount {
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 70.51rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.goodsScore {
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 38.46rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.goodBtn {
+  width: 141.03rpx;
+  height: 46.15rpx;
+  background-color: rgba(244, 250, 255, 1);
+  border-radius: 6.41rpx;
+  color: rgba(206, 48, 36, 1);
+  font-size: 23.08rpx;
+  margin-left: 19rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+}
+
+.originalPrice {
+  font-family: HarmonyOS_Sans_SC;
+  font-size:
+    20.51rpx;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 7rpx;
+
+}
+
+.goods_down {
+  width: 647.44rpx;
+  height: 300rpx;
+  border-radius: 0 0 40rpx 40rpx;
+  /* background-color: bisque; */
+}
+
+.goods_down_left {
+  margin-left: 30rpx;
+  width: 45%;
+  height: 55%;
+  /* background-color: blueviolet; */
+}
+
+.goods_down_left .text {
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size:
+    23.08rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.goodsIllustrate {
+  height: 130rpx;
+  width: 100%;
+  margin-top: 12rpx;
+  font-family: HarmonyOS_Sans_SC_Light;
+  line-height: 1.4;
+  /* 设置行距为字体大小的1.5倍 */
+  font-size: 23.08rpx;
+  color: rgba(255, 255, 255, 1);
+  /* background-color: aqua; */
+}
+
+.goodscroll {
+  height: 120rpx;
+  width: 100%;
+  z-index: 3;
+  /* background-color: blue; */
+}
+
+.goodsline {
+  width: 1.92rpx;
+  height: 223.72rpx;
+  margin-left: 40rpx;
+}
+
+.goods_down_right {
+  width: 35%;
+  height: 50%;
+  /* background-color: brown; */
+  margin-left: 30rpx;
+  align-items: flex-start;
+}
+
+.add {
+  width: 180rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* margin-top: 25rpx; */
+  color: rgba(7, 146, 244, 1);
+  font-size: 23.08rpx;
+  font-family: HarmonyOS_Sans_SC;
+  border-bottom: 1px solid rgba(7, 146, 244, 1);
+  /* 下划线样式 */
+  /* padding-bottom: 5px;  */
+}
+
+.goodSureBtn {
+  width: 179.49rpx;
+  height: 46.15rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size:
+    23.08rpx;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(119, 119, 119, 1);
+  border-radius: 6.41rpx;
+  margin-top: 80rpx;
+}
+
+.greenBtn {
+  width: 320.51rpx;
+  height: 57.69rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size:
+    23.08rpx;
+  color: rgb(230, 42, 42);
+  background-color: rgb(243, 249, 250);
+  border-radius: 6.41rpx;
+  margin-top: 30rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* 第四部分：虚拟商品 ！！！！！！！！！！*/
+.virtually_info {
+  width: 350.74rpx;
+  height: 300.46rpx;
+  position: fixed;
+  /* top: 37%; */
+  z-index: 1000;
+}
+
+.virtually_down {
+  width: 90%;
+  /* height: 327rpx; */
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+
+  /* background-color: aqua; */
+  justify-content: space-between;
+}
+
+.virtually_item {
+  position: relative;
+  width: 239.74rpx;
+  height: 361rpx;
+  margin-bottom: 29rpx;
+  /* background-color: blue; */
+  /* margin-right: 29rpx; */
+}
+
+.virtually_item_up1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 239.74rpx;
+  height: 288.46rpx;
+  border-radius: 15rpx;
+  /* background-color: aqua; */
+}
+
+.virtually_item_up2 {
+  position: absolute;
+  width: 210.46rpx;
+  height: 210.46rpx;
+  border-radius: 50%;
+  z-index: 1;
+  top: 12%;
+}
+
+.virtually_item_down {
+  position: absolute;
+  bottom: 0;
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size:
+
+    23.08rpx;
+  color: rgba(255, 255, 255, 1);
+}

@@ -1,0 +1,322 @@
+/**index.wxss**/
+page {
+  width: 100% !important;
+  height: 100% !important;
+  font-family: HarmonyOS_Sans_SC;
+}
+/* 按钮 */
+.gradient-button {
+  margin-top: 156rpx;
+  margin-left: auto;
+  margin-right: auto;
+  width: 698rpx;
+  height: 76rpx;
+
+}
+
+.gradient-background {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #8b24ff, #20e2ff);
+  border: none; /* 可选，去掉按钮的默认边框 */
+  color: #fff; /* 可选，设置按钮文字颜色为白色 */
+  border-radius: 38rpx;
+  font-size: 27rpx;
+}
+
+/* logo图片 */
+.image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 将图片容器的内容对齐方式设置为顶部对齐 */
+  margin-top: 465rpx;
+}
+
+.centered-image {
+  width: 145rpx;
+  height: 181rpx;
+  /* 如果你希望图片在容器中居中，可以设置 margin-left 和 margin-right 为 auto */
+  margin-left: auto;
+  margin-right: auto;
+}
+/* logo下方文字 */
+.text_more{
+  margin-top: 21rpx;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000FF; /* 可选，设置按钮文字颜色为白色 */
+font-weight: bold;
+  font-size: 27rpx;
+}
+
+/* 协议 */
+.agree{
+  width: 698rpx;
+  margin-top: 28rpx;
+  margin-left: 40rpx;
+  /* margin-right: auto; */
+  color: #a3a3a3; /* 可选，设置按钮文字颜色为白色 */
+  font-size: 23rpx;
+}
+text{
+  color:  #69AEE9FF;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  /* 确保蒙层在卡片之下 */
+}
+
+/* 授权 隐私*/
+.modal-container1 {
+  position: absolute;
+  bottom: 0;
+  z-index: 1001;
+  width: 100%;
+  height: 755rpx;
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  background-color: rgb(255, 255, 255);
+
+  /* transform: translateY(500rpx); */
+}
+
+.modal-content1 {
+  width: 648rpx;
+  height: 569rpx;
+
+}
+
+.modal-content1 .box1 {
+  height: 47rpx;
+  /* background-color: #9b9939; */
+  font-size: 43rpx;
+  color: rgba(0, 0, 0, 1);
+  font-weight: normal;
+  /* margin-left: 23rpx; */
+}
+
+
+.modal-content1 .box1 .text1 {
+  font-size: 43rpx;
+  color: rgba(0, 0, 0, 1);
+  font-weight: normal;
+  margin-left: 23rpx;
+}
+
+.modal-content1 .box2 {
+  line-height: 1.5;
+  font-size: 29.49rpx;
+  width: 617rpx;
+  color: rgba(102, 102, 102, 1);
+  margin-top: 64rpx;
+  /* background-color: #9b9939; */
+}
+
+.modal-content1 .box3 {
+  width: 100%;
+  height: 30rpx;
+  font-size: 27rpx;
+  margin-top: 30rpx;
+  color: rgba(88, 96, 140, 1);
+  /* background-color: #9b9939; */
+  /* border-bottom: 1px solid rgb(0, 0, 0, .2); */
+  /* 添加底部边框 */
+
+}
+
+
+
+
+.modal-content1 .box4 {
+  height: 96rpx;
+  /* background-color: #9b9939; */
+}
+
+.modal-content1 .box5 {
+  margin-top: 60rpx;
+  width: 647rpx;
+  height: 84rpx;
+
+}
+
+.modal-content1 .box6 {
+  width: 647rpx;
+  height: 84rpx;
+  margin-top: 27rpx;
+  color: rgba(102, 105, 145, 1);
+  font-size: 30rpx;
+
+  /* background-color: #9b9939; */
+}
+
+/* 按钮 */
+
+
+.gradient-background {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #8b24ff, #20e2ff);
+  border: none;
+  /* 可选，去掉按钮的默认边框 */
+  color: #fff;
+  /* 可选，设置按钮文字颜色为白色 */
+  border-radius: 38rpx;
+  font-size: 30rpx;
+}
+
+/* 授权 昵称*/
+.modal-container {
+  position: absolute;
+  bottom: 0;
+  z-index: 1001;
+  width: 100%;
+  height: 858rpx;
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  background-color: rgba(255, 255, 255, 1);
+
+  /* transform: translateY(500rpx); */
+}
+
+.modal-content {
+  width: 648rpx;
+  height: 705rpx;
+
+}
+
+.modal-content .box1 {
+  height: 47rpx;
+  /* background-color: #9b9939; */
+}
+
+.modal-content .box1 .logo {
+  height: 47rpx;
+  width: 47rpx;
+  border-radius: 50%;
+
+}
+
+.modal-content .box1 .text1 {
+  font-size: 32.05rpx;
+  color: rgba(0, 0, 0, 1);
+  font-weight: normal;
+  margin-left: 23rpx;
+}
+
+.modal-content .box2 {
+  font-size: 36rpx;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 64rpx;
+  /* background-color: #9b9939; */
+}
+
+.modal-content .box3 {
+  height: 96rpx;
+  margin-top: 60rpx;
+  /* background-color: #9b9939; */
+  border-bottom: 1px solid rgb(0, 0, 0, .2);
+  /* 添加底部边框 */
+}
+
+.modal-content .box3 .ava {
+  width: 80rpx;
+  /* height: 34rpx; */
+  font-size: 36rpx;
+  color: rgba(0, 0, 0, 1);
+  /* background-color: #20e2ff; */
+}
+
+.avainput {
+  flex: 1;
+  margin-left: 30rpx;
+  /* background-color: #30c237; */
+}
+
+.modal-content .box3 .img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 170rpx;
+}
+.modal-content .box3 .img::after { border: none; }
+.modal-content .box3 image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  /* margin-left: 30rpx;
+  
+  background-color: #8b24ff; */
+}
+
+.modal-content .box3 .btn1 {
+  /* background-color: #42d662; */
+  width: 30rpx;
+  height: 30rpx;
+  /* position: absolute;
+ right: 70rpx; */
+  /* border: none;  */
+  /* 可选，去掉按钮的默认边框 */
+  /* background-color: none; */
+  /* background-color: #8b24ff; */
+}
+
+/* .modal-content .box3 .btn1 image {
+  width: 11rpx;
+  height: 22rpx;
+} */
+
+.modal-content .box3 .btn2 {
+  /* background-color: #42d662; */
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  right: 70rpx;
+  border: 1rpx solid rgb(0, 0, 0, 0);
+  /* 可选，去掉按钮的默认边框 */
+  background-color: rgb(0, 0, 0, 0);
+}
+
+.modal-content .box4 {
+  height: 96rpx;
+  /* background-color: #9b9939; */
+}
+
+.modal-content .box5 {
+  margin-top: 92rpx;
+  width: 647rpx;
+  height: 84rpx;
+
+}
+
+.modal-content .box6 {
+  width: 647rpx;
+  height: 84rpx;
+  margin-top: 27rpx;
+  color: rgba(102, 105, 145, 1);
+  font-size: 30rpx;
+
+  /* background-color: #9b9939; */
+}
+
+/* 按钮 */
+
+
+.gradient-background {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #8b24ff, #20e2ff);
+  border: none;
+  /* 可选，去掉按钮的默认边框 */
+  color: #fff;
+  /* 可选，设置按钮文字颜色为白色 */
+  border-radius: 38rpx;
+  font-size: 30rpx;
+}

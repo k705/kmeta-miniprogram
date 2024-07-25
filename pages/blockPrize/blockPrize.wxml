@@ -1,0 +1,66 @@
+<!--index.wxml-->
+
+
+<view class="contain " style="background-image: url('https://image.kmeta.world/applet/images/blockPrize/bac.png')">
+  <view class="card">
+    <!-- <view class="head"></view> -->
+    <view class="body flex_col_xcenter">
+      <view class="text1">抢兑时间剩余</view>
+      <view class="clock">{{countdown}}</view>
+      <view class="text2">剩余K区块</view>
+      <view class="num">{{inventory}}
+        <view class="num_inner">/{{blockPrizeDetails.blockNumber}}</view>
+      </view>
+      <view class="block flex_center bac">
+        <!--  -->
+        <view class="container flex_col_xcenter">
+          <view class="line flex">
+            <view wx:for="{{array1}}" wx:key="index" class="item bac" style="background-image: url('https://image.kmeta.world/applet/images/blockPrize/{{item.url}}');">
+            </view>
+          </view>
+          <view class="line flex">
+            <view wx:for="{{array2}}" wx:key="index" class="item bac" style="background-image: url('https://image.kmeta.world/applet/images/blockPrize/{{item.url}}');">
+            </view>
+          </view>
+          <view class="line flex">
+            <view wx:for="{{array3}}" wx:key="index" class="item bac" style="background-image: url('https://image.kmeta.world/applet/images/blockPrize/{{item.url}}');">
+            </view>
+          </view>
+          <view class="line flex">
+            <view wx:for="{{array4}}" wx:key="index" class="item bac" style="background-image: url('https://image.kmeta.world/applet/images/blockPrize/{{item.url}}');">
+            </view>
+          </view>
+          <view class="line flex">
+            <view wx:for="{{array5}}" wx:key="index" class="item bac" style="background-image: url('https://image.kmeta.world/applet/images/blockPrize/{{item.url}}');">
+            </view>
+          </view>
+        </view>
+
+
+      </view>
+      <view class="add_out ">
+        <view class="add" bindtap="goToAddressPage">收货信息：<text>{{address !== '' ? address : '请填写收货信息'}}</text></view>
+      </view>
+      
+      <!-- 配额 -->
+      <view wx:if="{{blockPrizeDetails.quotaText!=null}}" bind:tap="goInvite" style="background-image: url('https://image.kmeta.world/applet/images/blockPrize/quota.png');" class="quota bac flex_y_center"><text style="position: absolute;left: 75rpx;">{{blockPrizeDetails.quotaText}}</text></view>
+      <!-- 计数器 -->
+      <view class="choose">
+        <view>所需：<text>{{(blockPrizeDetails.needScore) ?(blockPrizeDetails.needScore * count):'0'}}</text> K
+        </view>
+        <view class="choose_count flex">
+          <view style="font-size: 23.08rpx;font-family: HarmonyOS_Sans_SC;">选择数量：</view>
+          <view class="counter">
+            <button class="btn bac" style="background-image: url('https://image.kmeta.world/applet/images/blockPrize/down.png');margin-left: 0rpx;" bindtap="decrement"></button>
+            <!--  -->
+            <text style="margin-left:26rpx">{{count}}</text>
+            <button class="btn bac" style="background-image: url('https://image.kmeta.world/applet/images/blockPrize/up.png')" bindtap="increment"></button>
+          </view>
+        </view>
+      </view>
+      <view class="subBtn flex_center" bind:tap="getMyBlock">点击抢兑K区块</view>
+
+    </view>
+  </view>
+
+</view>

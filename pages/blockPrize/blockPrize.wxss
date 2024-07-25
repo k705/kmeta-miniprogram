@@ -1,0 +1,221 @@
+/**index.wxss**/
+page {
+  font-family: HarmonyOS_Sans_SC;
+}
+
+.contain {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  color: aliceblue;
+}
+
+
+.card {
+  height: 100vh;
+  width: 698rpx;
+  background-size: cover;
+  background-position: center;
+  margin-top: 25rpx;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 18rpx;
+  background-color: rgba(0, 0, 0, .5);
+
+}
+
+.head {
+  height: 192rpx;
+  background-color: rgb(102, 63, 63);
+  border-radius: 20rpx 20rpx 0 0;
+
+}
+
+.body {
+  position: relative;
+  width: 685rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 84rpx;
+  color: rgba(255, 255, 255, 1);
+  font-family: HarmonyOS_Sans_SC_Black;
+  /* background-color: aqua; */
+}
+
+.text1 {
+  font-size: 26.92rpx;
+}
+
+.clock {
+  color: rgba(250, 52, 20, 1);
+  font-size: 42.31rpx;
+  margin-top: 30rpx;
+}
+
+.text2 {
+  font-size: 51.28rpx;
+  margin-top: 76rpx;
+}
+
+.num {
+  /* background-color: aqua; */
+  font-size: 167rpx;
+  height: 167rpx;
+  line-height: 167rpx;
+  color: rgba(250, 52, 20, 1);
+  margin-top: 35rpx;
+  margin-left: 60rpx;
+  display: flex;
+  align-items: flex-end;
+
+}
+
+.num_inner {
+  font-size: 31rpx;
+  color: rgba(85, 85, 85, 1);
+  height: 40rpx;
+  line-height: 0rpx;
+}
+
+.block {
+  width: 635rpx;
+  height: 161rpx;
+  background-color: rgba(98, 111, 120, .1);
+  border-radius: 19rpx;
+  margin-top: 71rpx;
+}
+
+
+
+.container {
+  /* width: 580rpx;
+  height: 120rpx; */
+  /* display: flex;
+  flex-wrap: wrap; */
+  /* background-color: aquamarine; */
+}
+.line{
+  /* width: 580rpx; */
+height: 17rpx;
+margin-top: 8rpx;
+
+}
+.item {
+/* background-color: blue; */
+  box-sizing: border-box;
+  width: 17rpx;
+  height: 17rpx;
+  margin-right: 13rpx;
+}
+
+
+.block .image {
+  width: 19rpx;
+  height: 20rpx;
+}
+
+.add_out{
+margin-left: auto;
+margin-right: auto;
+  width:635rpx;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 17rpx;
+  /* background-color: blue; */
+}
+
+.add {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 270rpx;
+  /* margin-top: 25rpx; */
+  color: rgba(7, 146, 244, 1);
+  font-size: 23.08rpx;
+  font-family: HarmonyOS_Sans_SC;
+  /* position: absolute; */
+  /* right: 0; */
+  /* top: 696rpx; */
+  border-bottom: 1px solid rgba(7, 146, 244, 1);
+  /* 下划线样式 */
+  /* padding-bottom: 5px;  */
+}
+
+/* 限购 */
+.quota {
+  position: relative;
+  width: 480.49rpx;
+  height: 68.59rpx;
+  color: rgba(255, 255, 255, 1);
+  font-size: 23.08rpx;
+  font-family: HarmonyOS_Sans_SC;
+  margin-top: 96rpx;
+
+}
+
+
+.choose {
+  width: 635rpx;
+  height: 34rpx;
+  /* background-color: rgb(51, 46, 116); */
+  margin-top: 56rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.choose text {
+  color: rgba(250, 52, 20, 1);
+  font-size: 38.46rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+}
+
+
+
+/* 计数器 */
+.choose_count {
+  /* width: 248rpx; */
+  height: 100%;
+  margin-left: 70rpx;
+  align-items: center;
+  /* background-color: rgba(7, 146, 244, 1); */
+}
+
+.counter {
+  display: flex;
+  height: 100%;
+  align-items: center;
+
+}
+
+.btn {
+  width: 31rpx;
+  height: 31rpx;
+
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  margin-left: 22rpx;
+  /* border-radius: 4px; */
+}
+
+
+
+
+
+
+
+
+
+.subBtn {
+  width: 512rpx;
+  height: 115rpx;
+  background-color: rgba(250, 52, 20, 1);
+  margin-top: 150rpx;
+  border-radius: 57.69rpx;
+  font-size: 33rpx;
+}

@@ -1,0 +1,290 @@
+/**index.wxss**/
+page {
+  font-family: HarmonyOS_Sans_SC;
+}
+
+.contain {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  color: aliceblue;
+}
+/* w未中奖弹窗 */
+.close {
+  position: fixed;
+  top: 67%;
+  z-index: 2;
+  width: 79.49rpx;
+  height: 79.49rpx;
+  z-index: 2;
+  /* background-color: aqua; */
+}
+
+.nft_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  /* 确保蒙层在卡片之下 */
+}
+
+.nowin{
+  position: fixed;
+  width: 344.23rpx;
+  height: 276.92rpx;
+  z-index: 2;
+}
+.win{
+  position: fixed;
+  top: 150rpx;
+  width: 577rpx;
+  height: 963rpx;
+  z-index: 2;
+  /* background-color: aqua; */
+}
+
+.win_head{
+  position: fixed;
+  bottom: 213rpx;
+  /* width: 577rpx; */
+  margin-left: 38rpx;
+  height: 93rpx;
+  z-index: 2;
+}
+.win_foot{
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  height: 192.31rpx;
+  z-index: 2;
+  backdrop-filter: blur(7rpx);
+  /* background-color: bisque; */
+}
+.win_footinn{
+  width: 85%;
+  height: 130rpx;
+justify-content: space-between;
+  /* background-color: rgb(40, 136, 139); */
+}
+.win_footleft{
+  /* width: 70%; */
+  height:100%;
+  /* background-color: rgb(161, 194, 71); */
+justify-content: space-between;
+
+}
+.ava{
+  width: 39.74rpx;
+  height: 39.74rpx;border-radius: 50%;
+}
+.name{
+  font-family: HarmonyOS_Sans_SC_Black;
+  color: rgba(255, 255, 255, 1);
+  font-size: 14.17rpx;
+  margin-left: 16rpx;
+}
+.win_footright{
+  width: 96.79rpx;
+  height:100%;
+  /* background-color: rgb(165, 118, 63); */
+}
+.qrcode{
+  width: 96.79rpx;
+  height: 96.79rpx;
+  margin-top: 11rpx;
+ /* border-radius: 50%; */
+}
+.card {
+  height: 100%;
+  width: 698rpx;
+  background-size: cover;
+  background-position: center;
+  margin-top: 25rpx;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 18rpx;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.head {
+  height: 192rpx;
+  background-color: rgb(102, 63, 63);
+  border-radius: 20rpx 20rpx 0 0;
+
+}
+
+.body {
+  position: relative;
+  width: 92%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 74rpx;
+  color: rgba(255, 255, 255, 1);
+  font-family: HarmonyOS_Sans_SC_Black;
+  /* background-color: aqua; */
+}
+
+.text1 {
+
+  color: rgba(255, 255, 255, 1);
+  font-size: 29rpx;
+
+}
+
+.text1 text {
+
+  color: rgba(250, 52, 20, 1);
+  font-size: 57.69rpx;
+  margin-left: 21rpx;
+  margin-right: 11rpx;
+
+
+}
+
+.block_pic {
+  width: 100%;
+  height: 103rpx;
+  margin-top: 50rpx;
+  white-space: nowrap;
+  /* background-color: aqua; */
+}
+
+.block_pic .image {
+  width: 113rpx;
+  height: 113rpx;
+  /* background-color: aqua; */
+}
+
+.banner scroll-view {
+  height: 100%;
+  display: flex;
+
+}
+
+.sort {
+  position: relative;
+  display: inline-block;
+  /* font-size: 32rpx; */
+  margin-right: 4rpx;
+  line-height: 80rpx;
+  height: 100%;
+  /* background-color: aqua; */
+}
+
+scroll-view .sort:last-child {
+  margin-right: 0rpx;
+}
+
+.choose {
+  color: rgba(255, 255, 255, 1)
+}
+
+
+@keyframes spread {
+  0% {
+    width: 0;
+    left: 50%;
+  }
+
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
+
+.block {
+  position: relative;
+
+  width: 642rpx;
+  height: 447rpx;
+  /* background-color: rgb(51, 46, 116); */
+  margin-top: 121rpx;
+}
+
+.block_left {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 622rpx;
+  height: 367rpx;
+  /* background-color: rgb(95, 165, 55); */
+}
+
+.block_leftinn {
+  position: relative;
+  width: 488rpx;
+  height: 225rpx;
+  /* background-color: rgb(51, 46, 116); */
+  color: rgba(255, 255, 255, 1);
+  font-family: HarmonyOS_Sans_SC;
+  font-size: 23.08rpx;
+}
+
+.block_leftinn .down {
+  background-color: rgba(0, 0, 0, .1);
+  color: rgba(255, 255, 255, .3);
+}
+
+.block_leftinn .nowinblockcenter {
+  margin-top: 18rpx;
+  width: 344rpx;
+  height: 277rpx;
+
+}
+
+.block_leftinn .winblockcenter {
+  margin-top: 18rpx;
+  width: 396rpx;
+  height: 275rpx;
+}
+
+.secret {
+  margin-top: 13rpx;
+  width: 38.46rpx;
+  height: 57.69rpx;
+  /* margin-left: 6.41rpx; */
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.block_right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 193rpx;
+  height: 161rpx;
+  /* background-color: rgb(201, 123, 22); */
+}
+
+.block_right .chooseblock {
+  width: 141rpx;
+  height: 138rpx;
+  /* background-color: aqua; */
+}
+
+.winGoTask{
+  width: 100%;
+  margin-top: 60rpx;
+  /* background-color: aqua; */
+  font-family: HarmonyOS_Sans_SC_Medium;
+  color: rgba(20, 154, 249, 1);
+  font-size: 28rpx;
+  /* padding-bottom: 5rpx; */
+  /* border-bottom: aqua 1rpx solid; */
+}
+
+.subBtn {
+  width: 512rpx;
+  height: 115rpx;
+  background-color: rgba(250, 52, 20, 1);
+  margin-top: 170rpx;
+  border-radius: 57.69rpx;
+  font-size: 33rpx;
+  margin-left: auto;
+  margin-right: auto;
+}

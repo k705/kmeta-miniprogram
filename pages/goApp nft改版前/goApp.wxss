@@ -1,0 +1,825 @@
+/**index.wxss**/
+page {
+  font-family: HarmonyOS_Sans_SC;
+}
+
+.contain {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* height: 100%; */
+  /* 设置页面容器的高度为视窗高度 */
+  width: 100vw;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.banner {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 80rpx;
+  background: rgb(2, 3, 3, 1);
+  color: rgba(255, 255, 255, .4);
+  font-size: 25.64rpx;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  /* border-top: 1rpx solid #f5f5f5; */
+  /* border-bottom: 1rpx solid #f5f5f5; */
+  z-index: 10;
+}
+
+.banner scroll-view {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sort {
+  position: relative;
+  display: inline-block;
+  /* font-size: 32rpx; */
+  margin-right: 65rpx;
+  line-height: 80rpx;
+  height: 100%;
+  /* background-color: aqua; */
+}
+
+scroll-view .sort:last-child {
+  margin-right: 0rpx;
+}
+
+.choose {
+  color: rgba(255, 255, 255, 1)
+}
+
+.line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3rpx;
+  border-radius: 10rpx;
+  background: rgba(255, 255, 255, 1);
+  animation: spread .3s;
+}
+
+@keyframes spread {
+  0% {
+    width: 0;
+    left: 50%;
+  }
+
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
+
+/* 无数据！！！！！！！！！！*/
+
+.no-data {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #999;
+  font-size: 14px;
+}
+
+.no-databox {
+  position: fixed;
+  width: 115.94rpx;
+  height: 127.72rpx;
+}
+
+/* 第一部分：区块大奖 ！！！！！！！！！！*/
+/* 规则图 */
+.rulesbac {
+  position: fixed;
+  top: 250rpx;
+  width: 611.54rpx;
+  height: 832.05rpx;
+  z-index: 2;
+  /* background-color: aqua; */
+}
+
+.rulescroll {
+  position: relative;
+  top: 170rpx;
+  left: 57rpx;
+  width: 485.26rpx;
+  height: 496.21rpx;
+  color: aliceblue;
+  font-size: 20rpx;
+  /* background-color: aqua; */
+}
+
+.rulescrollImg {
+
+  width: 485.26rpx;
+  height: 1426.92rpx;
+  /* height:100%; */
+  /*color: aliceblue;
+   font-size: 20rpx; */
+  /* background-color: aqua; */
+}
+
+/* 列表 */
+.bigbanner {
+  width: 699rpx;
+  height: 1050rpx;
+  /* background-color: aqua; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 52rpx;
+  margin-bottom: 15rpx;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.bigbanner_up {
+  position: relative;
+  width: 100%;
+  height: 1050rpx;
+  border-radius: 30rpx;
+  /* background-color: blue; */
+  /* background-position: center -120rpx; */
+  background-position: center -50rpx;
+  background-size: cover;
+}
+
+.infoico {
+  position: absolute;
+  top: 25.64rpx;
+  right: 25.64rpx;
+  width: 57.69rpx;
+  height: 57.69rpx;
+}
+
+.goMyPrize {
+  position: absolute;
+  bottom: 217rpx;
+  right: 38rpx;
+  width: 117rpx;
+  height: 189rpx;
+  /* background-color: aqua; */
+}
+
+.myPrizeNum {
+  position: absolute;
+  top: 49rpx;
+  right: 32rpx;
+  /* background-color: aqua; */
+}
+
+.gomyPrizeicon {
+  width: 19.23rpx;
+  height: 22.44rpx;
+}
+
+.myPrizeicon {
+  position: relative;
+  width: 96.15rpx;
+  height: 96.15rpx;
+  margin-top: 15rpx;
+}
+
+.myPrizeNumText {
+  color: rgba(255, 255, 255, 1);
+  font-size: 19.21rpx;
+  font-family: HarmonyOS_Sans_SC;
+  margin-top: 15rpx;
+}
+
+.bigbanner_down {
+  height: 170rpx;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  backdrop-filter: blur(7rpx);
+  /* 备用方案：半透明背景色 */
+  /* background-color: rgba(255, 255, 255, 0.5); */
+  /* background-color: blueviolet; */
+}
+
+/* 状态2按钮 */
+.state2_out {
+  width: 623rpx;
+  height: 97rpx;
+  /* background-color: blueviolet; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.state2_out .left {
+  /* width: 623rpx;
+  height: 97rpx; */
+  /* background-color: blueviolet; */
+}
+
+.state2_out .left .exchge {
+  color: rgba(255, 255, 255, 1);
+  font-size: 23.08rpx;
+  font-family: HarmonyOS_Sans_SC;
+}
+
+.state2_out .left .needscore {
+  color: rgba(255, 255, 255, 1);
+  font-size: 23.08rpx;
+  margin-top: 13rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  display: flex;
+  height: 52rpx;
+  line-height: 52rpx;
+}
+
+.state2_out .left .score {
+  color: rgba(249, 52, 20, 1);
+  font-size: 51.28rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  text-align: end;
+  margin-right: 6rpx;
+}
+
+.state2_out .right {
+  width: 281rpx;
+  height: 80rpx;
+  background-color: rgba(250, 52, 20, 1);
+  border-radius: 48.08rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  color: rgba(255, 255, 255, 1);
+  font-size: 27.77rpx;
+}
+
+
+
+/* 状态3按钮 */
+.bigbanner_down_btn {
+  width: 462rpx;
+  height: 87rpx;
+  background-color: rgba(250, 52, 20, 1);
+  border-radius: 48.08rpx;
+  font-family: HarmonyOS_Sans_SC;
+  color: rgba(255, 255, 255, 1);
+  font-size: 30.77rpx;
+}
+
+.disabled {
+  filter: grayscale(1);
+}
+
+/* 第二部分：数字藏品 ！！！！！！！！！！*/
+.close {
+  position: fixed;
+  top: 81%;
+  z-index: 2;
+  width: 79.49rpx;
+  height: 79.49rpx;
+  /* background-color: aqua; */
+}
+
+.nft_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  /* 确保蒙层在卡片之下 */
+}
+
+.newmodal5 {
+  z-index: 2;
+  width: 389.74rpx;
+  height: 299.36rpx;
+  position: fixed;
+  left: 28%;
+  /* top: 30%; */
+  top: 530rpx;
+  /* background-color: aquamarine;    */
+
+}
+
+.bigNFTImg {
+  position: fixed;
+  top: 17%;
+  width: 532.05rpx;
+  height: 858.97rpx;
+
+  z-index: 2;
+
+}
+
+.nft_card {
+  position: relative;
+  margin-top: 50rpx;
+  width: 698.72rpx;
+  height: 576.92rpx;
+  background-color: rgba(250, 52, 20, 1);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.nft_up {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 130rpx;
+  width: 698.72rpx;
+  height: 576.92rpx;
+  /* background-color: rgba(250, 52, 20, 1); */
+
+  border-radius: 30rpx;
+
+}
+
+.nft_name {
+  position: absolute;
+  bottom: 148rpx;
+  width: 100%;
+  height: 170rpx;
+  /* background-color: rgba(250, 52, 20, 1); */
+
+}
+
+.nft_name_inn {
+  margin-left: 43rpx;
+  width: 95%;
+  height: 166rpx;
+  /* background-color: royalblue; */
+
+}
+
+.collectiblesName {
+  color: rgba(250, 52, 20, 1);
+  font-size: 89.74rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+}
+
+.synopsis {
+  color: rgba(255, 255, 255, 1);
+  font-size: 26.92rpx;
+  font-family: HarmonyOS_Sans_SC;
+}
+
+/* 详细信息 */
+.nft_info {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 436rpx;
+  /* background-color: royalblue; */
+}
+
+.nft_info_inn {
+  width: 92%;
+  height: 370rpx;
+  /* background-color: rgb(142, 225, 65); */
+}
+
+.nft_info_name {
+  color: rgba(255, 255, 255, 1);
+  font-size: 35rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  justify-content: space-between;
+}
+
+.see {
+  width: 116rpx;
+  height: 31rpx;
+  /* background-color: aqua; */
+}
+
+.nft_info_num {
+  margin-top: 20rpx;
+  color: rgba(102, 102, 102, 1);
+  font-size: 25rpx;
+  font-family: HarmonyOS_Sans_SC_Light;
+}
+
+.nft_info_tags {
+  margin-top: 35rpx;
+  width: 100%;
+  /* background-color: royalblue; */
+  height: 45rpx;
+}
+
+.tag {
+  font-size: 23rpx;
+  background-color: rgba(27, 42, 62, 1);
+  border-radius: 20rpx;
+  height: 45rpx;
+  /* padding-left: 35rpx; */
+  /* padding-right: 35rpx; */
+  margin-left: 10rpx;
+  /* width: 20rpx; */
+  color: rgba(100, 121, 148, 1);
+}
+
+.tag-group {
+  display: flex;
+  /* 使用 flex 布局 */
+  flex-direction: row;
+  /* 横向排列 */
+
+}
+
+.nft_info_btn {
+  margin-top: 80rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 30.77rpx;
+  color: rgba(255, 255, 255, 1);
+  width: 512.82rpx;
+  height: 115.38rpx;
+  background-color: rgba(250, 52, 20, 1);
+  border-radius: 60rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*兑换分值 */
+.nft_score {
+  position: absolute;
+  bottom: -0.5rpx;
+  width: 100%;
+  height: 148rpx;
+  background-color: rgba(3, 4, 6, .5);
+  backdrop-filter: blur(15rpx);
+  border-radius: 0 0 30rpx 30rpx;
+}
+
+.nft_score_inn {
+  justify-content: space-between;
+  width: 624rpx;
+  height: 77rpx;
+  /* background-color: royalblue; */
+
+}
+
+.nft_score_left {
+
+  /* background-color: rgb(113, 182, 96); */
+
+}
+
+.nft_score_btn {
+  width: 230.77rpx;
+  height: 76.92rpx;
+  background-color: rgba(250, 52, 20, 1);
+  border-radius: 38.46rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 30.77rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.disabled {
+  filter: grayscale(1);
+}
+
+.have {
+  background-color: rgba(250, 52, 20, .5);
+
+}
+
+
+
+.nft_down_out {
+  position: fixed;
+  top: 740rpx;
+  height: 700rpx;
+  width: 100%;
+  flex-wrap: wrap;
+  /* background-color: aqua; */
+}
+
+.nft_down {
+  width: 100%;
+  flex-wrap: wrap;
+  /* background-color: rgb(56, 165, 23); */
+}
+
+.nft_item {
+  position: relative;
+  margin-top: 55rpx;
+  width: 145rpx;
+  height: 262.82rpx;
+  margin-left: 36rpx;
+  /* background-color: rgb(198, 218, 23);  */
+  /* margin-right: auto;
+  margin-left: auto; */
+}
+
+.stateIcon {
+  position: absolute;
+  width: 60.64rpx;
+  height: 60rpx;
+  left: -15rpx;
+  bottom: -20rpx;
+  /* background-color: aqua; */
+  /* margin-right: auto;
+  margin-left: auto; */
+}
+
+/* 第三部分：促销兑换 ！！！！！！！！！！*/
+.goods {
+  height: 100%;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: blue; */
+}
+
+.goods_item {
+  /* background-color: aqua; */
+  /* position: relative; */
+}
+
+.goods_up {
+  width: 698.72rpx;
+  height: 269.87rpx;
+  margin-top: 45rpx;
+}
+
+.goods_up_left {
+  width: 33%;
+  height: 224rpx;
+  margin-left: 28rpx;
+  /* background-color: blue; */
+}
+
+.goodsName {
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 26.92rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.goodsName {
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 26.92rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.goodsPicture {
+  width: 219.87rpx;
+  height: 140rpx;
+  /* background-color: blueviolet; */
+  margin-top: 12rpx;
+}
+
+.originalPrice {
+  font-family: HarmonyOS_Sans_SC;
+  font-size:
+    20.51rpx;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 7rpx;
+
+}
+
+.goods_up_right {
+
+  width: 370rpx;
+  height: 197rpx;
+  margin-left: 38rpx;
+  /* background-color: blue; */
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.goodsAmount {
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 70.51rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.goodsScore {
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 38.46rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.goodBtn {
+  width: 141.03rpx;
+  height: 46.15rpx;
+  background-color: rgba(244, 250, 255, 1);
+  border-radius: 6.41rpx;
+  color: rgba(206, 48, 36, 1);
+  font-size: 23.08rpx;
+  margin-left: 19rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+}
+
+.originalPrice {
+  font-family: HarmonyOS_Sans_SC;
+  font-size:
+    20.51rpx;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 7rpx;
+
+}
+
+.goods_down {
+  width: 647.44rpx;
+  height: 300rpx;
+  border-radius: 0 0 40rpx 40rpx;
+  /* background-color: bisque; */
+}
+
+.goods_down_left {
+  margin-left: 30rpx;
+  width: 45%;
+  height: 55%;
+  /* background-color: blueviolet; */
+}
+
+.goods_down_left .text {
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size:
+    23.08rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.goodsIllustrate {
+  height: 130rpx;
+  width: 100%;
+  margin-top: 12rpx;
+  font-family: HarmonyOS_Sans_SC_Light;
+  line-height: 1.4;
+  /* 设置行距为字体大小的1.5倍 */
+  font-size: 23.08rpx;
+  color: rgba(255, 255, 255, 1);
+  /* background-color: aqua; */
+}
+
+.goodscroll {
+  height: 120rpx;
+  width: 100%;
+  z-index: 3;
+  /* background-color: blue; */
+}
+
+.goodsline {
+  width: 1.92rpx;
+  height: 223.72rpx;
+  margin-left: 40rpx;
+}
+
+.goods_down_right {
+  width: 35%;
+  height: 50%;
+  /* background-color: brown; */
+  margin-left: 30rpx;
+  align-items: flex-start;
+}
+
+.add {
+  width: 180rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* margin-top: 25rpx; */
+  color: rgba(7, 146, 244, 1);
+  font-size: 23.08rpx;
+  font-family: HarmonyOS_Sans_SC;
+  border-bottom: 1px solid rgba(7, 146, 244, 1);
+  /* 下划线样式 */
+  /* padding-bottom: 5px;  */
+}
+
+.goodSureBtn {
+  width: 179.49rpx;
+  height: 46.15rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size:
+    23.08rpx;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(119, 119, 119, 1);
+  border-radius: 6.41rpx;
+  margin-top: 80rpx;
+}
+
+.greenBtn {
+  width: 320.51rpx;
+  height: 57.69rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size:
+    23.08rpx;
+  color: rgb(230, 42, 42);
+  background-color: rgb(243, 249, 250);
+  border-radius: 6.41rpx;
+  margin-top: 30rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 第四部分：虚拟商品 ！！！！！！！！！！*/
+.virtuallyGoodsItem {
+  position: relative;
+  width: 698.72rpx;
+  height: 768.23rpx;
+  /* background-color: blue; */
+  margin-top: 50rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.virtually {
+  width: 698.72rpx;
+  height: 768.23rpx;
+  /* background-color: burlywood; */
+
+
+  position: relative;
+}
+
+.virtually_bigPic {
+
+  position: absolute;
+  bottom: 200rpx;
+  width: 90%;
+  height: 184rpx;
+  margin-left: 41rpx;
+  /* background-color: rgb(135, 222, 147); */
+
+}
+
+.virtually_name {
+
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size:
+    51.28rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.virtually_goodsIllustrate {
+  margin-top: 25rpx;
+  font-family: HarmonyOS_Sans_SC;
+  font-size:
+
+    26.92rpx;
+  color: rgba(255, 255, 255, 1);
+}
+
+.virtually_foot {
+  position: absolute;
+  bottom: 0rpx;
+  width: 698.72rpx;
+  height: 192.31rpx;
+  background-color: rgba(5, 7, 12, 0.4);
+  backdrop-filter: blur(10rpx);
+  border-radius: 0 0 20rpx 20rpx;
+  /* background-color: rgb(22, 39, 117); */
+}
+
+.virtually_info {
+  position: absolute;
+  bottom: 0;
+  width: 698.72rpx;
+  height: 768.23rpx;
+  /* z-index: 4; */
+  /* background-color: aqua; */
+}
+
+.virtually_info_inn {
+
+  width: 80%;
+  height: 476rpx;
+  position: absolute;
+  bottom: 80rpx;
+  /* background-color: aqua; */
+}
+
+
+
+.virtually_info_name {
+  color: rgba(255, 255, 255, 1);
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 50rpx;
+  width: 70%;
+}
+
+.virtually_info_goodsIllustrate {
+  color: rgba(102, 102, 102, 1);
+  font-family: HarmonyOS_Sans_SC;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+  /* background-color: blue; */
+}
+
+.virtually_info_btn {
+  width: 430.77rpx;
+  height: 86.92rpx;
+  background-color: rgba(250, 52, 20, 1);
+  border-radius: 38.46rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  font-size: 30.77rpx;
+  color: rgba(255, 255, 255, 1);
+  position: absolute;
+  bottom: 30rpx;
+
+}

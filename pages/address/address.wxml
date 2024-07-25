@@ -1,0 +1,23 @@
+<!--index.wxml-->
+
+
+<view class="contain ">
+  <view class="contain_inner">
+    <view class="head flex_y_center">
+      <view class="text1">收货信息用于K集购买实物商品，请确保收货信息准确</view>
+      <view class="text2" bind:tap="saveAddress">保存</view>
+    </view>
+    <view class="name flex_y_center">
+      <view class="name_left">姓名</view>
+      <input class="name_right" placeholder="请输入收货姓名" bindinput="name" value="{{receiverName}}" />
+    </view>
+    <view class="name flex_y_center">
+      <view class="name_left">手机号</view>
+      <input class="name_right" placeholder="请输入收货手机号" bindinput="phone" value="{{receiverPhone}}" />
+    </view>
+    <view class="name flex_y_center">
+      <view class="name_left">地址</view>
+      <input class="name_right" placeholder="请输入收货地址" bindinput="address" value="{{address}}"/>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,80 @@
+<!--index.wxml-->
+<!-- 上拉加载功能：
+ scroll-view 组件的事件:
+    bindscrolltolower 当滚动到底部时会触发事件
+  下拉刷新功能：
+    refresher-enabled 开启自定义下拉刷新
+    bindrefresherrefresh 当下拉刷新被触发时，触发
+    refresher-triggered 下拉刷新状态：true显示loading，false会复位 -->
+
+
+<view class="contain" style="background-image: url('https://image.kmeta.world/applet/images/rank/rank_bac.png')">
+  <!-- 头部 -->
+  <view class="head bac flex_x_center" style="background-image: url('https://image.kmeta.world/applet/images/rank/bac_head.png')">
+    <view class="head_inner flex_y_center">
+      <view class="No2 flex_col_xcenter">
+        <image class="no2" src="https://image.kmeta.world/applet/images/rank/no2.png" mode="" />
+        <view class="pic">
+          <image class="imgava" src="{{second.avatar}}" mode="" />
+        </view>
+        <view class="text flex_col_xcenter  ">
+          <view class="text3">{{second.score}} </view>
+          <view class="text1">{{second.nickname}}</view>
+        </view>
+      </view>
+      <view class="No1 flex_col_xcenter">
+        <view class="king bac" style="background-image: url('https://image.kmeta.world/applet/images/rank/king1.png')"></view>
+        <view class="picbig">
+          <image class="imgava1" src="{{first.avatar}}" mode="" />
+          <image class="imgava2" src="https://image.kmeta.world/applet/images/rank/shoufu.png" mode="" />
+
+        </view>
+        <view class="text flex_col_xcenter  ">
+          <view class="text3_no1">{{first.score}} </view>
+          <view class="text1_no1">{{first.nickname}}</view>
+        </view>
+      </view>
+      <view class="No2 flex_col_xcenter" style="margin-left: 46rpx;">
+        <image class="no2" src="https://image.kmeta.world/applet/images/rank/no3.png" mode="" />
+        <view class="pic bac">
+          <image class="imgava" src="{{third.avatar}}" mode="" />
+        </view>
+        <view class="text flex_col_xcenter  ">
+          <view class="text3">{{third.score}} </view>
+          <view class="text1">{{third.nickname}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 排名 -->
+  <!-- <view style="flex: 1;background-color: aqua;margin-top: 64rpx;"> -->
+  <scroll-view class="scrollview" scroll-y="true">
+    <view class="scrollview-item flex_y_center" wx:for="{{ scrollList }}" wx:for-index="index" wx:key="id" item="{{ item }}">
+      <view class="text flex_center index">{{ item.ranking }}</view>
+      <view class="flex_center ava" style="background: url('https://image.kmeta.world/applet/images/rank/avaborder.png');background-size: cover;">
+        <image src="{{ item.avatar }}" mode="" />
+      </view>
+      <view class="text name">{{ item.nickname }}</view>
+      <view class="text1 flex_center">今日</view>
+      <view class="text flex_center score">{{ item.score }}</view>
+      <view class="text2 flex_center">K</view>
+    </view>
+
+  </scroll-view>
+  <!-- </view> -->
+
+  <!-- 底部 -->
+  <view class="foot flex_center">
+    <view class="scrollview-item flex foot-item">
+      <view class="text flex_center index" wx:if="{{self.ranking <= 99}}">{{ self.ranking }}</view>
+      <view class="text flex_center index" wx:else>99+</view>
+      <view class="text flex_center ava" style="background: url('https://image.kmeta.world/applet/images/rank/avaborder.png');background-size: cover;">
+        <image src="{{ self.avatar }}" mode="" />
+      </view>
+      <view class="text flex_y_center  footname">{{ self.nickname }}</view>
+      <view class="text1 flex_center">今日</view>
+      <view class=" flex_center myscore">{{ self.score }}</view>
+      <view class="text2 flex_center">K</view>
+    </view>
+  </view>
+</view>

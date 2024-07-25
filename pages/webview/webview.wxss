@@ -1,0 +1,65 @@
+/**index.wxss**/
+page {
+  width: 100% !important;
+  height: 100% !important;
+  color: black;font-family: HarmonyOS_Sans_SC;
+  
+}
+/* 按钮 */
+.gradient-button {
+  margin-top: 156rpx;
+  margin-left: auto;
+  margin-right: auto;
+  width: 698rpx;
+  height: 76rpx;
+
+}
+
+.gradient-background {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #8b24ff, #20e2ff);
+  border: none; /* 可选，去掉按钮的默认边框 */
+  color: #fff; /* 可选，设置按钮文字颜色为白色 */
+  border-radius: 38rpx;
+  font-size: 27rpx;
+}
+
+/* logo图片 */
+.image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* 将图片容器的内容对齐方式设置为顶部对齐 */
+  margin-top: 465rpx;
+}
+
+.centered-image {
+  width: 132rpx;
+  height: 132rpx;
+  /* 如果你希望图片在容器中居中，可以设置 margin-left 和 margin-right 为 auto */
+  margin-left: auto;
+  margin-right: auto;
+}
+/* logo下方文字 */
+.text_more{
+  margin-top: 21rpx;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000000FF; /* 可选，设置按钮文字颜色为白色 */
+font-weight: bold;
+  font-size: 27rpx;
+}
+
+/* 协议 */
+.agree{
+  width: 698rpx;
+  margin-top: 28rpx;
+  margin-left: 40rpx;
+  /* margin-right: auto; */
+  color: #a3a3a3; /* 可选，设置按钮文字颜色为白色 */
+  font-size: 23rpx;
+}
+text{
+  color:  #69AEE9FF;
+}

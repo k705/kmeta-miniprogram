@@ -1,0 +1,597 @@
+<!--index.wxml-->
+<!-- 上拉加载功能：
+ scroll-view 组件的事件:
+    bindscrolltolower 当滚动到底部时会触发事件
+  下拉刷新功能：
+    refresher-enabled 开启自定义下拉刷新
+    bindrefresherrefresh 当下拉刷新被触发时，触发
+    refresher-triggered 下拉刷新状态：true显示loading，false会复位 -->
+
+<!-- 星球 -->
+<openPage wx:if="{{openPageFlag}}" imagePath="{{url}}" second="{{4}}" bind:hide="onMyEvent"></openPage>
+<swiper wx:else vertical="true" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height: 100%" bindchange="swiperChange" style="background-color: rgb(160, 144, 144)">
+
+  <!-- 新手引导 -->
+  <swiper-item wx:if="{{newpeople}}">
+    <!-- 蒙层内容1 -->
+    <view class="overlay" wx:if="{{showfootCard}}">
+    </view>
+    <view class="overlay" wx:if="{{showPrivacy}}">
+      <!-- 蒙层内容1 -->
+    </view>
+    <!-- 授权 隐私  -->
+    <view class="modal-container1 flex_center" wx:if="{{showPrivacy}}">
+      <!-- 弹框内容 -->
+      <view class="modal-content1 flex_col">
+        <view class="box1">
+          为给你提供更好的服务
+        </view>
+        <view class="box2">允许我们在必要场景下，合理使用你的信息，并充分保障你的合法权利。请你在使用前仔细查阅以下协议条款，点击"允许"即表示你已阅读并同意对应的协议内容。</view>
+        <view class="box3 flex">
+          <view bindtap="goUserDoc">《用户服务协议》</view>
+          <view bindtap="goPrivacyDoc">《隐私政策》</view>和
+          <view bind:tap="openPrivacyContract">《用户隐私指引》</view>
+          <!-- <view  bind:tap="openPrivacyContract">{{privacyContractName}}</view> -->
+        </view>
+        <view class="box5 flex_center">
+          <button class="gradient-background flex_center" open-type="agreePrivacyAuthorization" bindagreeprivacyauthorization="handleAgreePrivacyAuthorization" id="agree-btn">允许</button>
+        </view>
+        <view class="box6 flex_center" bind:tap="handledisAgreePrivacyAuthorization">
+          拒绝
+        </view>
+      </view>
+    </view>
+    <!-- 授权 昵称头像 -->
+    <view class="modal-container flex_center" wx:if="{{showfootCard}}">
+      <!-- 弹框内容 -->
+      <view class="modal-content flex_col">
+        <view class="box1 flex_y_center">
+          <view class="bac logo" style="background-image: url('https://image.kmeta.world/applet/images/share_logo.png');"></view>
+          <view class="text1">K星矿元 申请</view>
+        </view>
+        <view class="box2">获取你的昵称、头像</view>
+        <view class="box3 flex_y_center">
+
+          <view class="ava">头像</view>
+          <!-- style="background-image: url('{{avatarUrl}}');" -->
+          <button class="bac img" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar" style="background-image: url('{{avatarUrl}}');">
+            <!-- <image src="{{avatarUrl}}" mode=""  /> -->
+          </button>
+
+          <button class="btn2 flex_center" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+            <view class="btn1 flex_center">
+              <image src="https://image.kmeta.world/applet/images/home/arr.png" style="height: 22rpx;width: 11rpx;" mode="" />
+            </view>
+          </button>
+        </view>
+        <view class="box3 flex_y_center" style="margin-top: 0;">
+          <view class="ava">昵称</view>
+          <view class="avainput">
+            <input type="nickname" value="{{inputValue}}" bindinput="handleInput" placeholder="请输入昵称" />
+          </view>
+        </view>
+        <view class="box5 flex_center">
+          <button class="gradient-background flex_center" bindtap="allow">允许</button>
+        </view>
+        <view class="box6 flex_center" bindtap="notallow">
+          拒绝
+        </view>
+      </view>
+    </view>
+
+
+    <!-- 第一张引导图 -->
+    <view wx:if="{{firstpic}}" class="background" style="background-image: url('https://image.kmeta.world/applet/images/home/newbac1.png');" bindtap="firstOre">
+      <!-- 蒙层内容 -->
+      <!-- wx:if="{{ showModal2 }}" -->
+      <view class="newpeople_overlay">
+      </view>
+      <view class="bac newmodal1" style="background-image: url('https://image.kmeta.world/applet/images/home/newmodal1.png');"></view>
+      <view class="bac firstOre" style="background-image: url('https://image.kmeta.world/applet/images/home/firstOre.png');"></view>
+      <!-- 排行榜 -->
+      <view class="rank-bar">
+        <view class="rank-elementPic">
+          <image src="https://image.kmeta.world/applet/images/home/home_rank.png" mode="" />
+        </view>
+        <view class="rank-elementText">K分排行榜>
+
+        </view>
+      </view>
+      <!-- 倒计时 -->
+      <!-- <view class="countdown" id="countdown">
+        <view class="countdown_inner2 " wx:if="{{ showTime }}">
+          <view class="countdown_innerleft">
+            <image src="https://image.kmeta.world/applet/images/home/TIME1.png" mode="" />
+          </view>
+          <view class="countdown_innerright" wx:if="{{ showTime }}">{{countdown}}</view>
+        </view>
+        
+      </view> -->
+      <!-- 花和赚 -->
+      <view id="foot" class="foot flex_y_center">
+        <!-- 左边 -->
+        <view class="foot_left bac" style="background-image: url('https://image.kmeta.world/applet/images/home/money1.png');">
+          <view class="foot_down_num  flex_y_center ">
+            <view class="text1">0</view>
+            <view class="text2">K</view>
+          </view>
+        </view>
+        <!-- 右边 -->
+        <view class="foot_left bac" style="background-image: url('https://image.kmeta.world/applet/images/home/flower1.png');">
+
+        </view>
+      </view>
+    </view>
+    <!-- 第二张引导图 -->
+    <view wx:if="{{secondpic}}" class="background" style="background-image: url('https://image.kmeta.world/applet/images/home/newbac1.png');" bindtap="secondpic">
+      <!-- 蒙层内容 -->
+      <!--  -->
+
+      <view class="bac newmodal2" style="background-image: url('https://image.kmeta.world/applet/images/home/newmodal2.png');"></view>
+
+      <!-- 排行榜 -->
+      <view class="rank-bar">
+        <view class="rank-elementPic">
+          <image src="https://image.kmeta.world/applet/images/home/home_rank.png" mode="" />
+        </view>
+        <view class="rank-elementText">K分排行榜>
+
+        </view>
+      </view>
+      <!-- 倒计时 -->
+      <!-- <view class="countdown" id="countdown">
+        <view class="countdown_inner2 " wx:if="{{ showTime }}">
+          <view class="countdown_innerleft">
+            <image src="https://image.kmeta.world/applet/images/home/TIME1.png" mode="" />
+          </view>
+          <view class="countdown_innerright" wx:if="{{ showTime }}">{{countdown}}</view>
+        </view>
+        <view wx:else class="countdown_inner2 " style="justify-content: flex-end;">
+          <view class="countdown_innerleft">
+            <image src="https://image.kmeta.world/applet/images/home/TIME1.png" mode="" />
+          </view>
+
+        </view>
+      </view> -->
+      <!-- 花和赚 -->
+      <view id="foot" class="foot flex_y_center" style="z-index: 2;">
+        <!-- 蒙层内容 -->
+        <!--  -->
+        <view class="newpeople_overlay" style="z-index: 3;">
+        </view>
+
+        <!-- 左边 -->
+        <view class="foot_left bac" style="z-index: 3;background-image: url('https://image.kmeta.world/applet/images/home/money1.png');">
+          <view class="foot_down_num  flex_y_center ">
+            <view class="text1">10</view>
+            <view class="text2">K</view>
+          </view>
+        </view>
+        <!-- 右边 -->
+        <view class="foot_left bac" style="background-image: url('https://image.kmeta.world/applet/images/home/flower1.png');">
+        </view>
+      </view>
+    </view>
+    <!-- 第三张引导图 -->
+    <view wx:if="{{thirdpic}}" class="background" style="background-image: url('https://image.kmeta.world/applet/images/home/newbac1.png');">
+      <!-- 蒙层内容 -->
+      <!-- wx:if="{{ showModal2 }}" -->
+      <view class="newpeople_overlay">
+      </view>
+      <view class="bac newmodal3" style="background-image: url('https://image.kmeta.world/applet/images/home/newmodal3.png');"></view>
+      <!-- 排行榜 -->
+      <view class="rank-bar">
+        <view class="rank-elementPic">
+          <image src="https://image.kmeta.world/applet/images/home/home_rank.png" mode="" />
+        </view>
+        <view class="rank-elementText">K分排行榜>
+
+        </view>
+      </view>
+      <!-- 倒计时 -->
+      <!-- <view class="countdown" id="countdown">
+        <view class="countdown_inner2 " wx:if="{{ showTime }}">
+          <view class="countdown_innerleft">
+            <image src="https://image.kmeta.world/applet/images/home/TIME1.png" mode="" />
+          </view>
+          <view class="countdown_innerright" wx:if="{{ showTime }}">{{countdown}}</view>
+        </view>
+        <view wx:else class="countdown_inner2 " style="justify-content: flex-end;">
+          <view class="countdown_innerleft">
+            <image src="https://image.kmeta.world/applet/images/home/TIME1.png" mode="" />
+          </view>
+
+        </view>
+      </view> -->
+      <!-- 花和赚 -->
+      <view id="foot" class="foot flex_y_center">
+
+        <!-- 左边 -->
+        <view class="foot_left bac" style="background-image: url('https://image.kmeta.world/applet/images/home/money1.png');">
+          <view class="foot_down_num  flex_y_center ">
+            <view class="text1">10</view>
+            <view class="text2">K</view>
+          </view>
+
+        </view>
+        <!-- 右边 -->
+        <view class="foot_left bac" style="background-image: url('https://image.kmeta.world/applet/images/home/flower1.png');">
+        </view>
+      </view>
+    </view>
+
+  </swiper-item>
+  <swiper-item wx:if="{{fourpic}}" bindtap="goAppNewpeople">
+    <!-- 第四张引导图 -->
+    <view class="background" style="background-image: url('https://image.kmeta.world/applet/images/home/newbac2.png');">
+      <!-- 蒙层内容 -->
+      <!--  -->
+      <!-- <view class="newpeople_overlay">
+      </view> -->
+
+      <!-- 排行榜 -->
+      <view class="rank-bar">
+        <view class="rank-elementPic">
+          <image src="https://image.kmeta.world/applet/images/home/home_rank.png" mode="" />
+        </view>
+        <view class="rank-elementText">K分排行榜>
+
+        </view>
+      </view>
+      <!-- 倒计时 -->
+      <!-- <view class="countdown" id="countdown">
+        <view class="countdown_inner2 " wx:if="{{ showTime }}">
+          <view class="countdown_innerleft">
+            <image src="https://image.kmeta.world/applet/images/home/TIME1.png" mode="" />
+          </view>
+          <view class="countdown_innerright" wx:if="{{ showTime }}">{{countdown}}</view>
+        </view>
+        <view wx:else class="countdown_inner2 " style="justify-content: flex-end;">
+          <view class="countdown_innerleft">
+            <image src="https://image.kmeta.world/applet/images/home/TIME1.png" mode="" />
+          </view>
+
+        </view>
+      </view> -->
+      <!-- 花和赚 -->
+      <view id="foot" class="foot flex_y_center" style="z-index: 2;">
+        <!-- 蒙层内容 -->
+        <!--  -->
+        <view class="newpeople_overlay" style="z-index: 3;">
+        </view>
+        <view class="bac newmodal4" style="background-image: url('https://image.kmeta.world/applet/images/home/newmodal42.png');"></view>
+
+        <!-- 左边 -->
+        <view class="foot_left bac" style="background-image: url('https://image.kmeta.world/applet/images/home/money1.png');">
+          <view class="foot_down_num  flex_y_center ">
+            <view class="text1">10</view>
+            <view class="text2">K</view>
+          </view>
+
+        </view>
+        <!-- 右边 -->
+        <view class="foot_left bac" bindtap="goApp" style="background-image: url('https://image.kmeta.world/applet/images/home/flower1.png');z-index: 3;">
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+
+  <!-- 正式星球 -->
+  <swiper-item wx:if="{{!newpeople}}" wx:for="{{ starList }}" wx:for-index="index" wx:key="id" wx:for-item="starItem">
+
+    <!-- 签到 -->
+    <!-- 蒙层内容 -->
+    <!--  -->
+    <view class="overlay" wx:if="{{ showsignIn&&!isSignIn}}">
+    </view>
+    <view class="signInBac  pos_center" wx:if="{{ showsignIn&&!isSignIn}}" style="background: url('https://image.kmeta.world/applet/images/home/signInBac.png');">
+      <view class="signInBacTit">
+        <view style="margin-left: 38rpx;">
+          <text class="signInBacTit_top">
+            签到奖励
+          </text>
+          <text class="signInBacTit_foot">
+            <text>已连续签到</text>
+            <text class="signInBacTit_days">{{monthSignInDays}}</text>
+            <text>天</text>
+          </text>
+        </view>
+      </view>
+      <view class="signBigOre bac" style="background: url('https://image.kmeta.world/applet/images/home/signBigOre.png');"></view>
+      <view class="signInDay ">
+
+
+        <view wx:for="{{rewardList}}" wx:key="id" item="{{item}}">
+          <view wx:if="{{item.day <= monthSignInDays}}" class="signInDayItem opacity">
+            <view class="signInPorpScore pos_center bac" style="background-image: url('{{item.rewardIcon}}');"></view>
+            <view class="signInPorp pos_center bac" wx:if="{{item.rewardType != 'score'}}" style="background-image: url('{{item.rewardIcon}}');"></view>
+            <view class="signInDayNum">{{item.day}}</view>
+            <view wx:if="{{item.rewardType != 'score'}}" class="signInPropNum">x{{item.rewardQuantity}}</view>
+            <view class="signInPropNum">{{item.rewardQuantity}}</view>
+          </view>
+
+          <view wx:elif="{{item.day > monthSignInDays && item.important == 0}}" class="signInDayItemborder bluecolor">
+            <view class="signInPorpScore pos_center bac" style="background-image: url('{{item.rewardIcon}}');"></view>
+            <view class="signInPorp pos_center bac" wx:if="{{item.rewardType != 'score'}}" style="background-image: url('{{item.rewardIcon}}');"></view>
+            <view class="signInDayNum">{{item.day}}</view>
+            <view wx:if="{{item.rewardType != 'score'}}" class="signInPropNum">x{{item.rewardQuantity}}</view>
+            <view class="signInPropNum">{{item.rewardQuantity}}</view>
+          </view>
+
+          <view wx:elif="{{item.day > monthSignInDays && item.important == 1}}" class="signInDayItemborder greencolor">
+            <view class="signInPorpScore pos_center bac" style="background-image: url('{{item.rewardIcon}}');"></view>
+            <view class="signInPorp pos_center bac" wx:if="{{item.rewardType != 'score'}}" style="background-image: url('{{item.rewardIcon}}');"></view>
+            <view class="signInDayNum">{{item.day}}</view>
+            <view wx:if="{{item.rewardType != 'score'}}" class="signInPropNum">x{{item.rewardQuantity}}</view>
+            <view class="signInPropNum">{{item.rewardQuantity}}</view>
+          </view>
+        </view>
+
+        <view class="signBtn flex_center" bindtap="signInV2">领取</view>
+      </view>
+
+    </view>
+    <!-- 签到道具 -->
+    <view class="overlay" wx:if="{{ showsignInfo}}">
+    </view>
+    <block wx:if="{{ showsignInfo}}">
+      <view wx:if="{{rewardType=='prop'}}" class="rewardIcon pos_xcenter bac" style="background-image: url('{{rewardIcon}}');">
+      </view>
+      <view wx:if="{{rewardType=='score'}}" class="rewardIcon pos_xcenter bac" style="background-image: url('{{rewardIcon}}');width: 360rpx;height: 360rpx;">
+      </view>
+      <view class="pos_xcenter" style="font-family:HarmonyOS_Sans_SC_Regular;font-size: 33.46rpx;position: fixed;top: 823rpx;color: rgba(255, 255, 255, 1);z-index: 10000;">今日签到奖励</view>
+      <view wx:if="{{rewardType=='prop'}}" class="reward pos_xcenter">{{propName}}<text style="font-size:50.69rpx;font-family: HarmonyOS_Sans_SC_Bold;margin-left: 8rpx;">x{{rewardQuantity}}</text></view>
+
+
+
+      <view wx:if="{{rewardType=='score'}}" class="reward pos_xcenter"><text style="font-size:50.69rpx;font-family: HarmonyOS_Sans_SC_Bold;">{{rewardQuantity}}K</text></view>
+      <view class="showsignInfoBtn flex_center pos_xcenter" bindtap="isshowsignInfo">快去挖矿吧</view>
+    </block>
+
+
+
+
+    <!-- 蒙层内容 -->
+    <!--  -->
+    <view class="overlay" wx:if="{{ showModal2 }}">
+    </view>
+    <!-- 蒙层内容 -->
+    <!--  -->
+    <view class="overlay" wx:if="{{ showfinish }}">
+    </view>
+    <!-- 点击完所有矿石弹框 -->
+    <!--   -->
+    <view class="card_out flex_col_xcenter" wx:if="{{ showfinish }}">
+      <view class="card flex_center" style="background-image: url('https://image.kmeta.world/applet/images/home/cardbac22.png');">
+        <!-- <view class="card1" style="background-image: url('https://image.kmeta.world/applet/images/home/close.png');" bindtap="closefinish"></view> -->
+        <view class="boxout flex_col_center">
+          <view class="box1">您已到达最后一颗挖矿K星</view>
+          <view class="box2">
+            <view class="countdown_inner flex_center" bindtap="showTime">
+              <view class="countdown_innerleft">
+                <image src="https://image.kmeta.world/applet/images/home/TIME1.png" mode="" />
+              </view>
+              <view class="countdown_innerright flex_center" style="margin-left: -40rpx;margin-top: -10rpx;">{{countdown}}
+              </view>
+            </view>
+          </view>
+          <view class="box1" style="margin-top: 23rpx;">倒计时结束后矿石刷新再来</view>
+        </view>
+
+      </view>
+      <view class="cardsurebtn bac" bindtap="closefinish" style="background-image: url('https://image.kmeta.world/applet/images/home/cardsurebtn.png');"></view>
+    </view>
+
+    <!-- 大分惊喜弹框 -->
+    <!--  -->
+    <view class="BigScorecard_overlay" wx:if="{{ BigScorecard_overlay&&!prop_bigImg }}">
+      <!-- 蒙层内容 -->
+    </view>
+    <!--   -->
+    <view class="BigScorecard_out flex_col" wx:if="{{ showBigScore&&!prop_bigImg }}">
+      <view class="BigScorecard_score flex_center">{{bigScore}}</view>
+      <view class="BigScorecard" style="background-image: url('http://image-test.kmeta.world/applet/images/home/bigscorebac.png');">
+      </view>
+      <!-- <view class="BigScorecard2  margin_xcenter" style="background-image: url('https://image.kmeta.world/applet/images/home/close.png');" bindtap="closeBigScorecard"> </view> -->
+    </view>
+
+    <!-- 矿石-->
+
+    <view id="orebox" style="position: absolute;left: {{finalDistance}}rpx;right: {{finalDistance}}rpx;top: {{240 + finalDistance}}rpx;bottom: {{218 + finalDistance}}rpx;transform: translate3d({{-x}}rpx, {{-x1}}rpx, 0rpx);transition: transform 0.4s linear;z-index: 999;">
+      <view wx:for="{{starItem.points}}" wx:key="id" class="ore_out flex_center" item="{{ item }}" style=" left: {{item.x}}rpx; top: {{item.y}}rpx;">
+        <view class="ore" id="ore{{index}}" style="transform: rotate({{item.rotation || 0}}deg);" bindtap="clickOre" data-id="{{starItem.starId}}" data-item="{{starItem}}" data-index="{{index}}" data-isHidden="{{item.isHidden}}" data-isscoreHidden="{{item.isscoreHidden}}" wx:if="{{!item.isHidden}}">
+          <image src="{{starItem.orePic}}" mode="aspectFit" style="width: {{item.randomSize}}rpx; height: {{item.randomSize}}rpx;" />
+        </view>
+        <view wx:else class="animated-element" hidden="{{item.isscoreHidden ?  true:false }}" animation="{{animationData}}">{{score}}</view>
+      </view>
+    </view>
+    <!-- 蒙层内容 -->
+    <!--     -->
+    <!-- <view class="overlay" wx:if="{{ showModal1 }}">
+     
+    </view> -->
+
+
+    <!-- 其他页         wx:else-->
+    <view class="background">
+      <view class="background" style="background-image: url('{{starItem.background}}');transform: translate3d({{x}}rpx, {{x1}}rpx, 0rpx) scale({{scale}});transition: transform 0.4s linear;"></view>
+      
+
+
+        <view class="overlay" wx:if="{{ showModal2 }}">
+          <!-- 蒙层内容 -->
+        </view>
+        <!-- 排行榜 -->
+        <view class="rank-bar" bindtap="goRank">
+          <view class="rank-elementPic">
+            <image src="https://image.kmeta.world/applet/images/home/home_rank.png" mode="" />
+          </view>
+          <!-- 使用navigator组件实现页面跳转 -->
+          <view class="rank-elementText">K分排行榜>
+
+          </view>
+        </view>
+        <!-- 倒计时 -->
+        <!-- <view class="countdown" id="countdown">
+        <view class="countdown_inner2 ">
+          <view class="countdown_innerleft">
+            <image src="https://image.kmeta.world/applet/images/home/TIME1.png" mode="" />
+          </view>
+          <view class="countdown_innerright">{{countdown}}</view>
+        </view>
+
+      </view> -->
+        <!-- 一键点击   -->
+        <!-- <view style="z-index: 100000000;background-color: aqua;margin-top: 200rpx;width: 100rpx;" data-item="{{starItem}}" data-index="{{index}}" bindtap="getOre">点击点击点击222333</view> -->
+
+        <!-- <button style="z-index: 100000000;color: aqua;width: 200rpx;height: 200rpx;position: fixed;top: 230rpx;text-align: center;line-height: 200rpx;background-color: bisque;" bindtap="goTo3DPage">跳转到3D页面</button> -->
+        <!-- <button style="z-index: 100000000;color: aqua;width: 200rpx;height: 200rpx;position: fixed;top: 530rpx;text-align: center;line-height: 200rpx;background-color: bisque;" data-item="{{starItem}}" data-index="{{index}}" bindtap="getOre">一键点击</button> -->
+
+        <!-- 进入K界   -->
+        <view class="worldBtn bac" bindtap="goWorld" style="background-image: url('https://image.kmeta.world/applet/images/home/worldBtn2.png');"></view>
+
+
+
+        <!-- 实时讯息 wx:if="{{ showTime }}"-->
+        <swiper class="notice" vertical autoplay="{{!stopAutoPlay}}" interval="{{3000}}" duration="{{600}}" bindanimationfinish="swiperAnimationFinish">
+          <block wx:for="{{noticeList}}" wx:key="id">
+            <swiper-item>
+              <view class="notice_inn flex_y_center" wx:if="{{!item.isHighlight}}">
+                <view class="notice_avatar bac" style="background-image: url({{item.avatar}});"></view>
+                <view class="notice_trendsTime ">{{item.trendsTime}}</view>
+                <view class="notice_nickname ">{{item.nickname}}</view>
+                <view class="notice_trendsTime ">{{item.trendsContent}}</view>
+                <view class="notice_nickname ">{{item.trendsProject}}</view>
+              </view>
+              <view class="notice_inn flex_y_center" wx:else>
+                <view class="notice_avatar bac" style="background-image: url({{item.avatar}});"></view>
+                <view class="notice_trendsTime">{{item.trendsTime}}</view>
+                <view class="notice_nickname">{{item.nickname}}</view>
+                <view class="notice_trendsTime">{{item.trendsContent}}</view>
+                <view class="notice_nickname">{{item.trendsProject}}</view>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+
+        <!-- 道具 -->
+        <!-- 道具大图 -->
+        <block wx:if="{{prop_bigImg}}">
+          <view class="overlay"></view>
+
+          <view class="prop_bigImg pos_xcenter bac" style="background-image: url('{{propIcon}}');"></view>
+          <view class="prop_bigImgName pos_xcenter flex_x_center">{{propName}}</view>
+          <view class="prop_bigImgDesc pos_xcenter flex_x_center">{{propDesc}}</view>
+
+          <view class="prop_bigImgclose bac pos_xcenter" bind:tap="hide_prop_bigImg" style="background-image: url('https://image.kmeta.world/applet/images/goApp/close.png');top: 999rpx;"></view>
+        </block>
+        <!-- 确定使用道具大图 -->
+        <block wx:if="{{prop_bigImg_use}}">
+          <view class="overlay"></view>
+
+          <view class="prop_bigImg pos_xcenter bac" style="background-image: url('{{propIcon}}');"></view>
+          <view class="prop_bigImgName pos_xcenter flex_x_center">{{propName}}</view>
+          <view class="prop_bigImgDesc pos_xcenter flex_x_center">{{propDesc}}</view>
+          <view class="prop_bigImgBtn pos_xcenter flex_center" bind:tap="useProp" data-item="{{starItem}}" data-index="{{index}}">去使用</view>
+          <view class="prop_bigImgclose bac pos_xcenter" bind:tap="hide_prop_bigImgUse" style="background-image: url('https://image.kmeta.world/applet/images/goApp/close.png')"></view>
+        </block>
+
+        <!-- 花和赚 -->
+        <view id="foot" class="foot flex_y_center">
+          <!-- 前往K宝 wx:if="{{bindPhone}}"-->
+          <view class="foot_left" bindtap="navigateToTask">
+            <view class="foot_out1 flex_col">
+              <view class="foot_up ">
+                <view class="foot_up_text ">前往K宝>
+                </view>
+              </view>
+              <view class="foot_down margin_xcenter flex_center">
+                <view class="foot_down_in flex_col">
+                  <view class="foot_down_inleft ">
+                    当前K分
+                  </view>
+                  <view class="foot_down_inright">
+                    <view class="foot_down_num  flex_y_center " wx:if="{{accountScore <= 99999999}}">
+                      <view class="text1">{{accountIfo.usableScore}}</view>
+                      <view class="text2">K</view>
+                    </view>
+                    <view class="foot_down_num  flex_y_center " wx:else>
+                      <view class="text1">{{( accountIfo.usableScore )}}</view>
+                      <view class="text2">WK</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!-- <button wx:else class="foot_left_btn" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+          <view class="foot_out1 flex_col">
+            <view class="foot_up ">
+              <view class="foot_up_text ">前往K宝>
+              </view>
+            </view>
+            <view class="foot_down margin_xcenter flex_x_center">
+              <view class="foot_down_in flex_col">
+                <view class="foot_down_inleft ">
+                  当前K分
+                </view>
+                <view class="foot_down_inright">
+                  <view class="foot_down_num  flex_y_center " wx:if="{{accountScore <= 99999999}}">
+                    <view class="text1">{{accountIfo.usableScore}}</view>
+                    <view class="text2">K</view>
+                  </view>
+                  <view class="foot_down_num  flex_y_center " wx:else>
+                    <view class="text1">{{( accountIfo.usableScore )}}</view>
+                    <view class="text2">WK</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </button> -->
+
+          <!-- 前往K集 -->
+          <view class="foot_left" style="margin-left: 19.23rpx;">
+            <view class="foot_out1 flex_col">
+              <view class="foot_up flex">
+                <view wx:if="{{!useProp||propType==1}}" class="prop_three_out flex_center">
+                  <view class="prop_three_in flex">
+                    <block wx:for="{{3}}" wx:key="index">
+                      <view class="prop_three bac" wx:if="{{index < lightUp}}"></view>
+                      <view class="prop_three_nolight bac" wx:else style="background-color: rgba(48, 206, 212, 0);"></view>
+                    </block>
+                  </view>
+                </view>
+                <!-- width:202rpx;height:19rpx;border-radius:15rpx; margin-left:23rpx;margin-top:5rpx; -->
+                <div style="width: 202rpx;height: 19rpx;border-radius: 15rpx;margin-left: 23rpx;margin-top: 5rpx;" wx:if="{{useProp}}">
+                  <progress wx:if="{{propType==3||propType==5||propType==6||propType==8}}" percent="{{100*(totalUsable-useResidue)/totalUsable}}" active active-color="#000000" background-color="#00FFE0" border-radius="5" bindactiveend="onAnimationEnd" active-mode="forwards" />
+                  <!-- duration="{{useResidue*10}}" -->
+                  <progress wx:if="{{propType==4||propType==2||propType==7}}" percent="{{progress}}" active active-mode="forwards" bindactiveend="onAnimationEnd" active-color="#000000" background-color="#00FFE0" border-radius="5" />
+                </div>
+
+
+
+                <view class="foot_up_text" style="margin-left: 25rpx;" bindtap="goApp">前往K集>
+                </view>
+              </view>
+              <view class="foot_down margin_xcenter flex_center">
+                <view class="foot_prop">
+                  <scroll-view scroll-x="true" enable-flex="true" scroll-with-animation="true">
+                    <view class="foot_prop_item flex_col_xcenter" wx:for="{{propList}}" wx:for-index="index" wx:key="index">
+                      <view class="prop_head bac">
+                        <view class="prop_img pos_center bac" style="background-image: url('{{item.propIcon}}');" bind:tap="showPropUse" data-id="{{item.id}}" data-type="{{item.propType}}" data-icon="{{item.propIcon}}" data-name="{{item.propName}}" data-desc="{{item.propDesc}}"></view>
+                        <view class="prop_num">x{{item.quantity}}</view>
+                      </view>
+
+
+                    </view>
+                  </scroll-view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+    </view>
+  
+  </swiper-item>
+</swiper>

@@ -1,0 +1,279 @@
+/* pages/world/world.wxss */
+page {
+  width: 100% !important;
+  height: 100% !important;
+  font-family: HarmonyOS_Sans_SC;
+}
+
+.goHome {
+  position: fixed;
+  top: 100rpx;
+  left: 30rpx;
+  z-index: 1111;
+  width: 17.5rpx;
+  height: 32.24rpx;
+
+}
+
+/* 轮播图 */
+.swiper {
+  width: 100%;
+  height: 647.44rpx;
+}
+
+.bannerItem {
+  width: 100%;
+
+  height: 647.44rpx;
+  top: 0;
+  bottom: 0;
+}
+
+.img {
+  width: 100%;
+
+  height: 647.44rpx;
+}
+
+.img image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 动态 */
+.cosmosTrends {
+  width: 698.72rpx;
+  height: 420.51rpx;
+  background-color: rgba(0, 0, 0, .4);
+  border-radius: 25.64rpx;
+  margin-top: 38rpx;
+}
+
+.cosmosTrendsTop {
+  width: 698.72rpx;
+  height: 76.92rpx;
+  background-color: rgba(0, 0, 0, .4);
+  border-radius: 25.64rpx 25.64rpx 0rpx 0rpx;
+
+}
+
+.cosmosTrendsTop_inn {
+  width: 639rpx;
+  height: 76.92rpx;
+  color: rgba(255, 255, 255, 1);
+  font-family: HarmonyOS_Sans_SC;
+  font-size: 26.92rpx;
+
+}
+
+.fireIcon {
+  width: 21.15rpx;
+  height: 26.28rpx;
+  margin-left: 14rpx;
+}
+
+.cosmosTrendsBottom {
+  width: 667rpx;
+  height: 310rpx;
+  margin-left: 28rpx;
+  margin-bottom: 33rpx;
+  /* background-color: aquamarine; */
+}
+
+/* 实时讯息  */
+.notice {
+  /* background-color: rgb(16, 50, 143); */
+
+  width: 667rpx;
+  height: 300rpx;
+  /* background-color: aqua; */
+}
+
+.notice_inn {
+  /* width: 100%; */
+  height: 38.46rpx;
+  white-space: nowrap;
+  /* 不换行 */
+  /* overflow: hidden; */
+  /* 超出部分隐藏 */
+  text-overflow: ellipsis;
+  /* 显示省略号 */
+}
+
+.notice_avatar {
+  width: 33rpx;
+  height: 33rpx;
+  margin-left: 14rpx;
+  border-radius: 50%;
+  /* background-color: rgb(43, 255, 0); */
+}
+
+.notice_trendsTime {
+  color: rgba(173, 177, 194, 1);
+  font-size:
+    23.08rpx;
+  font-family: HarmonyOS_Sans_SC;
+  margin-left: 14rpx;
+
+}
+
+.notice_nickname {
+  color: rgba(255, 255, 255, 1);
+  font-size:
+    23.08rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  margin-left: 14rpx;
+}
+
+/* 广告位 */
+.displayStyle1 {
+  width: 698.72rpx;
+  height: 320.51rpx;
+  /* background-color: blueviolet; */
+  margin-top: 38rpx;
+}
+
+.displayStyle2_left {
+  width: 336.54rpx;
+  height: 320.51rpx;
+  /* background-color: blueviolet; */
+}
+
+.displayStyle3 {
+  width: 100vw;
+  height: 346.15rpx;
+  /* background-color: blueviolet; */
+  margin-top: 38rpx;
+}
+
+.displayStyle3_inn {
+  width: 698.72rpx;
+  height: 346.15rpx;
+  margin-left: 25rpx;
+
+  background-color: rgb(20, 123, 141);
+}
+
+.ad-item {
+  position: relative;
+  /* display: inline-block; */
+  /* width: 288.46rpx; */
+  margin-left: 25rpx;
+  height: 346.15rpx;
+  /* background-color: rgb(43, 226, 52); */
+}
+
+.displayStyle3 scroll-view {
+  height: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.ad-item_image {
+  position: relative;
+  width: 288.46rpx;
+  height: 346.15rpx;
+  z-index: 999;
+}
+
+.displayStyle3_nickname {
+  position: absolute;
+  bottom: 25rpx;
+
+  color: rgba(230, 179, 41, 1);
+  font-size: 24.62rpx;
+  font-family: HarmonyOS_Sans_SC_Black;
+  z-index: 999;
+
+}
+
+.displayStyle3_avatar {
+  position: absolute;
+  bottom: 122rpx;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* 每条讯息 */
+.noticeItem {
+  width: 703.85rpx;
+  height: 219.87rpx;
+  /* border: 1rpx solid rgba(233, 225, 225, 0.932); */
+  border-radius: 25rpx;
+  background-color: black;
+  margin-top: 36rpx;
+}
+
+.noticeContainer {
+  padding-bottom: 80rpx;
+  /* 给容器添加底部填充 */
+}
+
+/* .noticeItem:not(:last-child) {
+  margin-bottom: 30rpx;
+} */
+.noticeItem_left {
+  width: 218rpx;
+  height: 189rpx;
+  margin-left: 13rpx;
+  border-radius: 19rpx 0 0 19rpx;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.noticeItem_right {
+  flex: 1;
+  margin-left: 45rpx;
+  margin-right: 35rpx;
+  height: 100%;
+  /* background-color: blueviolet; */
+}
+
+.noticeItem_right_top {
+  height: 62rpx;
+  /* background-color: aqua; */
+  line-height: 35rpx;
+  margin-top: 25rpx;
+  font-family: HarmonyOS_Sans_SC_Medium;
+  /* overflow: hidden; */
+  text-overflow:ellipsis;
+  font-size:
+    24.36rpx;
+  color: rgba(255, 255, 255, 1);
+}
+.noticeItem_right_center {
+  width: 390rpx;
+  margin-top: 25rpx;
+  overflow: hidden;
+  font-family: HarmonyOS_Sans_SC_Light;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  font-size:
+  19.23rpx;
+  color: rgba(255, 255, 255, .6);
+}
+.noticeItem_line{
+  width: 391rpx;
+  height: 1rpx;
+  margin-top: 19rpx;
+  background-color: rgba(255, 255, 255, .2);
+}
+.noticeItem_right_bottom {
+  margin-top: 19rpx;
+  font-family: HarmonyOS_Sans_SC;
+  font-size:
+    19.23rpx;
+  color: rgba(255, 255, 255, .6);
+
+}
+
+/* 回到顶部按钮样式 */
+.back-to-top {
+  position: fixed;
+  bottom: 96rpx;
+  right: 58rpx;
+  width: 64.1rpx;
+  height: 64.1rpx;
+  z-index: 999;
+}

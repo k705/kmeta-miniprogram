@@ -1,0 +1,9 @@
+<!--pages/openPage/openPage.wxml-->
+<view class="openPage-box">
+
+  <!-- 创意指导：拼夕夕 -->
+  <!-- <view class="openPage-gif"> -->
+      <!-- <image src="{{gifUrl}}" mode="aspectFill"/> -->
+      <video class="pos_center" src="https://image.kmeta.world/applet/images/home/openVideo.mp4" mode="aspectFill" autoplay muted controls="{{false}}"></video>
+  <!-- </view> -->
+</view>

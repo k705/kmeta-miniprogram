@@ -1,0 +1,28 @@
+{
+  "pages": [
+    
+ 
+    "pages/home/home",
+    "pages/login/login",
+    "pages/rank/rank",
+    "pages/task/task",
+    "pages/invite/invite",
+    "pages/webview/webview",
+    "pages/goApp/goApp",
+    "pages/face/face",
+    "pages/blockPrize/blockPrize",
+    "pages/decrypt/decrypt",
+    "pages/sharePost/sharePost",
+    "pages/world/world",
+    "pages/logistics/logistics",
+    "pages/nft/nft",
+    "pages/address/address",
+    "pages/test1/test1"
+  ],
+  "window": {},
+  "lazyCodeLoading": "requiredComponents",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "__usePrivacyCheck__": true
+
+}

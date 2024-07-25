@@ -1,0 +1,77 @@
+<!--index.wxml-->
+
+<!-- <van-button round type="danger" class="bottom-button" bindtap="login">点击授权登录</van-button> -->
+<view class="image-container">
+  <image class="centered-image" src="https://image.kmeta.world/applet/images/login_logo.png" />
+</view>
+<!-- <view class="text_more flex_center">登录了解更多信息</view> -->
+<view class="gradient-button flex_center">
+  <button class="gradient-background flex_center" bindtap="login" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">手机号快捷登录</button>
+</view>
+<view class="overlay" wx:if="{{showfootCard}}">
+
+</view>
+<view class="overlay" wx:if="{{showPrivacy}}">
+  <!-- 蒙层内容1 -->
+</view>
+<view class="modal-container1 flex_center" wx:if="{{showPrivacy}}">
+  <!-- 隐私内容 -->
+  <view class="modal-content1 flex_col">
+    <view class="box1">
+      为给你提供更好的服务
+    </view>
+    <view class="box2">允许我们在必要场景下，合理使用你的信息，并充分保障你的合法权利。请你在使用前仔细查阅以下协议条款，点击"允许"即表示你已阅读并同意对应的协议内容。</view>
+    <view class="box3 flex">
+      <view bindtap="goUserDoc">《用户服务协议》</view>
+      <view bindtap="goPrivacyDoc">《隐私政策》</view>和
+      <view bind:tap="openPrivacyContract">《用户隐私指引》</view>
+      <!-- <view  bind:tap="openPrivacyContract">{{privacyContractName}}</view> -->
+    </view>
+    <view class="box5 flex_center">
+      <button class="gradient-background flex_center" open-type="agreePrivacyAuthorization" bindagreeprivacyauthorization="handleAgreePrivacyAuthorization" id="agree-btn">允许</button>
+    </view>
+    <view class="box6 flex_center" bind:tap="disagree">
+      拒绝
+    </view>
+  </view>
+
+
+</view>
+<!-- 授权 昵称头像 -->
+<!-- -->
+<view class="modal-container flex_center" wx:if="{{showfootCard}}" >
+  <!-- 弹框内容 -->
+  <view class="modal-content flex_col">
+    <view class="box1 flex_y_center">
+      <view class="bac logo" style="background-image: url('https://image.kmeta.world/applet/images/share_logo.png');"></view>
+      <view class="text1">K星矿元 申请</view>
+    </view>
+    <view class="box2">获取你的昵称、头像</view>
+    <view class="box3 flex_y_center">
+
+      <view class="ava">头像</view>
+      <!-- -->
+      <button class="bac img" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar"  style="background-image: url('{{avatarUrl}}');">
+        <!-- <image src="{{avatarUrl}}" mode=""  /> -->
+      </button>
+
+      <button class="btn2 flex_center" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
+        <view class="btn1 flex_center">
+          <image src="https://image.kmeta.world/applet/images/home/arr.png" style="height: 22rpx;width: 11rpx;" mode="" />
+        </view>
+      </button>
+    </view>
+    <view class="box3 flex_y_center" style="margin-top: 0;">
+      <view class="ava">昵称</view>
+      <view class="avainput">
+        <input type="nickname" value="{{inputValue}}" bindinput="handleInput" placeholder="请输入昵称" />
+      </view>
+    </view>
+    <view class="box5 flex_center">
+      <button class="gradient-background flex_center" bindtap="allow">允许</button>
+    </view>
+    <view class="box6 flex_center" bindtap="notallow">
+      拒绝
+    </view>
+  </view>
+</view>

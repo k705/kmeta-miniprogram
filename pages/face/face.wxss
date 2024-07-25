@@ -1,0 +1,58 @@
+/**index.wxss**/
+page {
+  font-family: HarmonyOS_Sans_SC;
+}
+.contain {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+}
+
+.head1{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 37rpx;
+  /* background-color: aquamarine; */
+  color: rgba(255, 255, 255, 1);
+  font-size: 38.46rpx;
+  margin-top: 70rpx;
+}
+.head{
+  width: 564rpx;
+  margin-left: auto;
+  margin-right: auto;
+  height: 153rpx;
+  /* height: 210rpx; */
+
+  margin-top: 25rpx;
+}
+
+.Wxacode{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 735rpx;
+  /* margin-top: 649rpx; */
+  width:292rpx;
+  height:292rpx;
+  /* height:407rpx; */
+  /* background-color: aqua; */
+}
+.Wxacode image{
+  position: absolute;
+  left: 40rpx;
+  top:35rpx;
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 20rpx;
+}
+.btn{
+  height: 6vh;
+  width: 100%;
+  font-family: HarmonyOS_Sans_SC;
+  font-size: 29rpx;
+}

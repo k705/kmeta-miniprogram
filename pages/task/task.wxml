@@ -1,0 +1,356 @@
+<!--index.wxml-->
+
+<view class="contain" style="background-image: url('https://image.kmeta.world/applet/images/task/bigbac1.png')">
+  <!-- 咖啡使用规则 -->
+  <block wx:if="{{show_coffee_info}}">
+    <view class="overlay">
+    </view>
+    <view class="coffee_close bac pos_xcenter" bind:tap="hideCoffeeInfo" style="background-image: url('https://image.kmeta.world/applet/images/goApp/close.png');"></view>
+    <view class="coffee_info bac pos_xcenter" style="background-image: url('https://image.kmeta.world/applet/images/task/coffeeBac.png');">
+      <view class="coffee_info_inn flex_col_xcenter">
+        <view class="usedCode bac flex_col_xcenter" style="background-image: url('https://image.kmeta.world/applet/images/task/useCodebac.png');">
+          <view class="usedCodeUp flex_center">
+            <view class="usedCodeUp_inn flex_center" >
+            <text selectable="true" user-select="{{true}}">  {{everyCode}}</text>
+            
+              <!-- <view wx:for-item="everyCodeItem" wx:for="{{everyCode}}" wx:key="index" >{{everyCodeItem}}</view> -->
+            </view>
+            </view>
+            <view class="usedCodeDown flex_center">长按兑换码复制</view>
+
+          </view>
+          <scroll-view scroll-y class="tutorials flex_col_xcenter">
+            <image wx:for-item="tutorialItem" wx:for="{{tutorials}}" wx:key="index" class="tutorialItem" src="{{tutorialItem}}" mode="aspectFill" bindtap="previewImage" data-previewImage="{{tutorialItem}}"></image>
+            <!-- <view wx:for-item="tutorialItem" wx:for="{{tutorials}}" wx:key="index" class="tutorialItem bac" style="background-image: url('{{tutorialItem}}')">
+            </view> -->
+          </scroll-view>
+        </view>
+
+      </view>
+
+  </block>
+
+  <!-- 分享到朋友圈logo -->
+  <view class="overlay" wx:if="{{ showModal }}">
+    <!-- 蒙层内容 -->
+  </view>
+  <view class="flex_col card_out" wx:if="{{ showModal }}">
+    <!-- <view class="flex_col card_out" > -->
+    <view style="background-image: url('https://image.kmeta.world/applet/images/task/circlefriends.png')" class="card">
+    </view>
+    <view class="btn_out flex_center">
+      <view class="Kirabtn flex_center" bindtap="closeKira">关闭</view>
+    </view>
+  </view>
+  <!-- 头部 -->
+  <view class="head flex_col_ycenter" style="background-image: url('https://image.kmeta.world/applet/images/task/head_bac.png')">
+    <view class="head_out flex_col_ycenter" wx:if="{{usableScore <= 99999999}}">
+      <view class="text1">当前K分：</view>
+      <view class="head_score">
+        <view class="text2">{{treasury.usableScore}}</view>
+        <view class="text3">K</view>
+      </view>
+      <view class="text4">当前可省</view>
+      <view class="head_money">
+        <view class="text5">{{treasury.usableScoreAmount}}</view>
+        <view class="text6">元</view>
+      </view>
+    </view>
+    <view class="head_out flex_col_ycenter" wx:else>
+      <view class="text1">当前K分：</view>
+      <view class="head_score">
+        <view class="text2">{{treasury.usableScore}}</view>
+        <view class="text3">WK</view>
+      </view>
+      <view class="text4">当前可省</view>
+      <view class="head_money">
+        <view class="text5">{{treasury.usableScoreAmount}}</view>
+        <view class="text6">W元</view>
+      </view>
+    </view>
+  </view>
+  <!-- 中间 -->
+  <view class="hotact flex_center">
+    <image src="https://image.kmeta.world/applet/images/task/zu1.png" mode="" />
+  </view>
+
+
+  <!--轮播图  indicator-color="rgba(255, 255, 255, .2)" indicator-active-color="rgba(255, 255, 255, 1)"-->
+  <!-- -->
+  <swiper class="swiper"  autoplay="{{true}}" indicator-dots="{{false}}"  interval="{{3000}}" circular="{{true}}"  duration="{{1000}}"> 
+    
+    <swiper-item class="bannerItem" bindtap='goSharePost' >
+      <view class="img">
+        <image src="https://image.kmeta.world/applet/images/task/banner0.png"></image>
+      </view>
+    </swiper-item>
+    <swiper-item bindtap="showKira">
+      <view class="img">
+        <image src="https://image.kmeta.world/applet/images/task/banner32.png"></image>
+      </view>
+    </swiper-item>
+    <swiper-item bindtap="goApp">
+      <view class="img">
+        <image src="https://image.kmeta.world/applet/images/task/banner43.png"></image>
+      </view>
+    </swiper-item>
+    <swiper-item  bindtap='navigateToPage'>
+      <view class="img" >
+        <image src="https://image.kmeta.world/applet/images/task/banner41.png"></image>
+      </view>
+    </swiper-item> 
+  </swiper>
+
+  <!-- K宝 -->
+  <!-- background-image: url('../../static/task/Kbac.png') -->
+  <view class="exchangeRecord bac" style="background-color: rgba(9, 9, 10, 0.445);">
+    <view class="banner">
+      <scroll-view scroll-x="true" enable-flex="true" scroll-with-animation="true" scroll-into-view="nav-{{select > 0 ? select -1 : select}}">
+        <view wx:for="{{sortList}}" wx:for-index="index" wx:key="index" id="nav-{{index}}" class="sort {{index == select ? 'choose' : ''}}" data-index='{{index}}' bindtap="activeTab">
+          {{item.name}}
+          <view class="line" wx:if="{{index == select}}"></view>
+        </view>
+      </scroll-view>
+
+    </view>
+
+    <!-- ----------第一部分：区块大奖------ -->
+    <swiper wx:if="{{select === 0}}" style="height:{{height}}px;min-height: 30vh;" current="{{select}}" duration="300" bindchange="activeSw">
+      <swiper-item>
+        <view class="box">
+          <block wx:if="{{blockPrizeList.length === 0}}">
+            <view class="no-databox bac pos_xcenter" style="background-image: url('https://image.kmeta.world/applet/images/nodatabox.png');top: 30%;"></view>
+            <view class="no-data" style="top: 65%;">
+              暂无数据</view>
+          </block>
+          <view wx:else="">
+
+
+
+            <!-- 列表 -->
+            <view class="blockPrize">
+              <view class="flex_col" wx:for="{{blockPrizeList}}" wx:for-item="blockPrizeItem" wx:key="id">
+                <!-- 上 -->
+                <view bind:tap="isShowPrizeCard" data-index="{{index}}" class="blockPrize_up bac flex_y_center" style="background-image: url('https://image.kmeta.world/applet/images/task/prizeUpbac.png')">
+                  <view class="prizepic_small bac" style="background-image: url('https://image.kmeta.world/applet/images/task/prizepic_small.png')"></view>
+                  <view class="pizename">{{blockPrizeItem.prizeName}}</view>
+                  <view wx:if="{{blockPrizeItem.state==0}}" class="prizestate">即将开奖</view>
+                  <view wx:if="{{blockPrizeItem.state==1}}" class="prizestate">正在开奖</view>
+                  <view wx:if="{{blockPrizeItem.state==3}}" class="prizestate" style=" color: rgba(244, 247, 255, .4);font-family: HarmonyOS_Sans_SC;">未中奖</view>
+                  <view style="color: rgba(250, 52, 20, 1);" wx:if="{{blockPrizeItem.state==2}}" class="prizestate win">已中奖</view>
+                  <view wx:if="{{blockPrizeItem.state==4}}" class="prizestate" style=" color: rgba(244, 247, 255, .4);font-family: HarmonyOS_Sans_SC;">已失效</view>
+                  <!-- 上 -->
+                </view>
+                <!-- 下 -->
+                <view wx:if="{{show_goodscard_map[index]}}" class="blockPrize_down bac flex_y_center" style="background-image: url('https://image.kmeta.world/applet/images/task/prizeDownbac.png')">
+                  <view wx:if="{{blockPrizeItem.state==0||blockPrizeItem.state==1}}" class="prizepic_big bac" style="background-image: url('https://image.kmeta.world/applet/images/task/unknowwin.png')"></view>
+                  <view wx:if="{{blockPrizeItem.state==2}}" class="prizepic_big bac" style="background-image: url('https://image.kmeta.world/applet/images/task/win.png')"></view>
+                  <view wx:if="{{blockPrizeItem.state==3}}" class="prizepic_big bac" style="background-image: url('https://image.kmeta.world/applet/images/task/nowin.png')"></view>
+                  <view class="prize_right flex_col">
+                    <view class="prize_rightname">K分区块</view>
+                    <view class="prize_time">爆块时间：{{blockPrizeItem.decryptStartTime}}</view>
+                    <view class="prize_key">区块密钥：{{blockPrizeItem.secretKey}}</view>
+                  </view>
+                  <view wx:if="{{blockPrizeItem.state==1}}" class="goAppBtn flex_center" bind:tap="goDecrypt" data-id="{{blockPrizeItem.blockPrizeId}}" data-state="{{blockPrizeItem.state}}">去爆块</view>
+                  <view style="background-color: rgba(250, 52, 20, 1);" wx:if="{{blockPrizeItem.state==2&&blockPrizeItem.usedCode.length!=0}}" class="goAppBtn flex_center" bind:tap="showCoffeeInfo" data-usedCode="{{blockPrizeItem.usedCode}}" data-id="{{blockPrizeItem.id}}">兑换码</view>
+                 <view style="background-color: rgba(250, 52, 20, 1);" wx:if="{{blockPrizeItem.state==2&&(blockPrizeItem.waybillNo!=''||blockPrizeItem.waybillNo!=null||blockPrizeItem.waybillNo!=undefined)&&blockPrizeItem.usedCode.length==0}}" class="goAppBtn flex_center" bind:tap="goLogistics"  data-id="{{blockPrizeItem.id}}">查物流</view> 
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+    <!-- ----------第二部分：数字藏品------ -->
+    <view wx:if="{{select === 1}}" style="height:{{height}}px;min-height: 30vh;" duration="300" bindchange="activeSw">
+      <view>
+        <view class="box">
+          <block wx:if="{{digitalCollectiblesList.length === 0}}">
+            <view class="no-databox bac pos_xcenter" style="background-image: url('https://image.kmeta.world/applet/images/nodatabox.png');top: 30%;"></view>
+            <view class="no-data">
+              暂无数据</view>
+          </block>
+          <view wx:else>
+            <!-- 预览图 -->
+            <!-- 数字藏品大图 -->
+            <block wx:if="{{show_bigNFTImg}}">
+              <view class="overlay">
+              </view>
+              <view class="close bac pos_center" bind:tap="hidebigNFTImg" style="background-image: url('https://image.kmeta.world/applet/images/goApp/close.png')"></view>
+              <canvas hidden="{{isHidden}}"  type="2d" id="myCanvas" class="bigNFTImg bac pos_xcenter" ></canvas>
+              <view class="bigNFTImg bac pos_xcenter" style="background-image: url('{{nft_cardImage}}');"></view>
+              <view class="seeNft  pos_xcenter" bind:tap="seeNft">查看NFT信息</view>
+              <view class="shareNft  pos_xcenter" bind:tap="onShareNft">分享给好友  炫耀一下～</view>
+            </block>
+            <!-- 数字藏品证书 -->
+            <block wx:if="{{show_certificate}}">
+              <view class="overlay">
+              </view>
+              <view class="close bac pos_center" bind:tap="hidecertificateImg" style="background-image: url('https://image.kmeta.world/applet/images/goApp/close.png')"></view>
+              <view class="bigNFTImg bac pos_xcenter flex_col_xcenter" style="background-image: url('https://image.kmeta.world/applet/images/task/certificateBac.png');">
+                <block style="position: relative;;">
+                  <view class="certificate_pic bac" style="background-image: url('https://image.kmeta.world/applet/images/task/certificate_pic.png');"></view>
+                  <view style="font-family: HarmonyOS_Sans_SC_Black;font-size: 32.05rpx;color: rgba(255, 255, 255, 1); position: absolute;top: 223rpx;">CERTIFICATE</view>
+                  <text decode="{{true}}" style="font-family: HarmonyOS_Sans_SC;font-size: 20.51rpx;color: rgba(255, 255, 255, .5);position: absolute;top: 261rpx;">N&ensp;F&ensp;T&ensp;藏&ensp;品&ensp;证&ensp;书</text>
+                  <view class="certificate_line"></view>
+                  <view class="certificate_info flex_col">
+                    <view class="flex_between" style="margin-bottom: 21.15rpx;">
+                      <view class="certificate_info_left">藏品名称：</view>
+                      <view class="certificate_info_right">{{collectiblesName}}</view>
+                    </view>
+                    <view class="flex_between" style="margin-bottom: 21.15rpx;">
+                      <view class="certificate_info_left">收藏者：</view>
+                      <view class="certificate_info_right">{{collectors}}</view>
+                    </view>
+                    <view class="flex_between" style="margin-bottom: 21.15rpx;">
+                      <view class="certificate_info_left">创作者：</view>
+                      <view class="certificate_info_right">Kmeta</view>
+                    </view>
+                    <view class="flex_between" style="margin-bottom: 21.15rpx;">
+                      <view class="certificate_info_left">发行方：</view>
+                      <view class="certificate_info_right">Kmeta</view>
+                    </view>
+                    <view class="flex_between" style="margin-bottom: 21.15rpx;">
+                      <view class="certificate_info_left">发售平台：</view>
+                      <view class="certificate_info_right">{{salesPlatform}}</view>
+                    </view>
+                    <view class="flex_between" style="margin-bottom: 21.15rpx;">
+                      <view class="certificate_info_left">兑换日期：</view>
+                      <view class="certificate_info_right">{{createTime}}</view>
+                    </view>
+                  </view>
+                  <view class="certificate_foot flex_center bac" style="background-image: url('https://image.kmeta.world/applet/images/task/certificate_border.png');">{{collectiblesCode}}</view>
+                </block>
+              </view>
+
+            </block>
+            <!-- 列表 -->
+            <view class="nft_down flex_x_center">
+              <view class="nft_item bac" style="background-image: url('{{digitalCollectiblesItem.cardImage}}');" wx:for-item="digitalCollectiblesItem" wx:key="id" wx:for="{{digitalCollectiblesList}}" bind:tap="showNftCard" data-id="{{digitalCollectiblesItem.id}}" data-cardimage="{{digitalCollectiblesItem.cardImage}}" data-collectiblesName="{{digitalCollectiblesItem.collectiblesName}}" data-collectors="{{digitalCollectiblesItem.collectors}}" data-createTime="{{digitalCollectiblesItem.createTime}}" data-salesPlatform="{{digitalCollectiblesItem.salesPlatform}}" data-collectiblesCode="{{digitalCollectiblesItem.collectiblesCode}}">
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- ----------第三部分：促销兑换------ -->
+    <view wx:if="{{select === 2}}" style="height:{{height}}px;min-height: 30vh;" duration="300" bindchange="activeSw">
+
+      <view class="box">
+        <block wx:if="{{promotionGoodsList.length === 0}}">
+          <view class="no-databox bac pos_xcenter" style="background-image: url('https://image.kmeta.world/applet/images/nodatabox.png');top: 30%;"></view>
+          <view class="no-data">
+            暂无数据</view>
+
+        </block>
+        <!-- 列表 -->
+        <view wx:else class="goods flex_col_xcenter">
+          <view class="goods_item flex_col_xcenter" wx:for-item="goodsItem" wx:key="id" wx:for="{{promotionGoodsList}}">
+            <!-- 上边 -->
+            <view class="goods_up bac flex_y_center" style="background-image: url('{{goodsItem.backgroundImage}}')">
+              <view class="goods_up_left flex_col">
+                <view class="goodsName">{{goodsItem.goodsName}}</view>
+                <view class="goodsPicture" style="background-image: url('{{goodsItem.goodsPicture}}');  background-size: contain; background-repeat: no-repeat;background-position: center;"></view>
+                <view class="originalPrice">原价:{{goodsItem.originalPrice}}元</view>
+              </view>
+              <view class="goods_up_right flex_col">
+                <!-- 实物 -->
+                <view wx:if="{{goodsItem.goodsType=='entity'}}" class="goodsAmount">
+                  <text style="font-size:51.28rpx;margin-left:-15rpx">{{goodsItem.goodsName}}</text>
+                </view>
+                <!-- 结算卡 -->
+                <view wx:if="{{goodsItem.goodsType=='debitCard'}}" class="goodsAmount">{{goodsItem.goodsAmount}}
+                  <text style="font-size:51.28rpx;margin-left:-15rpx">元抵扣券</text>
+                </view>
+                <view class="flex">
+                  <view class="goodsScore">{{goodsItem.goodsScore}}K</view>
+                  <view wx:if="{{goodsItem.state == 1}}" class="goodBtn flex_center" bind:tap="show_goodscard" data-index="{{index}}">可使用</view>
+                  <view wx:if="{{goodsItem.state == 2}}" class="goodBtn flex_center" bind:tap="show_goodscard" data-index="{{index}}">已兑换</view>
+                  <view bind:tap="show_goodscard" wx:if="{{goodsItem.state == 3}}" data-index="{{index}}" class="goodBtn flex_center">已过期</view>
+                </view>
+              </view>
+            </view>
+            <!-- 详细信息 实物 -->
+            <view wx:if="{{show_goodscard_map[index]&&goodsItem.goodsType=='entity'}}" class="goods_down flex_y_center" style="background-image: url('https://image.kmeta.world/applet/images/goApp/goodsinfobac.png'); ">
+              <view class="goods_down_left flex_col">
+                <view class="text">使用规则：</view>
+                <view class="goodsIllustrate">
+                  <scroll-view class="goodscroll" scroll-y="true">
+                    <text style="white-space: pre-line;">{{goodsItem.goodsIllustrate}}</text>
+                  </scroll-view>
+                </view>
+              </view>
+              <view class="goodsline bac" style="background-image: url('https://image.kmeta.world/applet/images/goApp/line.png'); "> </view>
+              <view class="goods_down_right flex_col">
+                <view class="add" bindtap="goToAddressPage">收货信息:<text>{{address !== '' ? address : '填写收货信息'}}</text></view>
+
+
+              </view>
+            </view>
+            <!-- 详细信息 结算卡 -->
+            <view wx:if="{{show_goodscard_map[index]&&goodsItem.goodsType=='debitCard'}}" class="goods_down flex_y_center" style="background-image: url('https://image.kmeta.world/applet/images/goApp/goodsinfobac.png'); ">
+              <view class="goods_down_left flex_col" bind:tap="hide_goodscard" style="width:80%;height: 73%;">
+                <view class="text">使用规则：</view>
+                <view class="goodsIllustrate">
+                  <scroll-view class="goodscroll" scroll-y="true">
+                    <text style="white-space: pre-line;">{{goodsItem.goodsIllustrate}}</text>
+                  </scroll-view>
+
+                </view>
+
+              </view>
+
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+    <!-- ----------第四部分：虚拟商品------ -->
+    <view wx:if="{{select === 3}}" style="height:{{height}}px;min-height: 30vh;" duration="300" bindchange="activeSw">
+      <view>
+        <view class="box">
+          <block wx:if="{{virtuallyGoodsList.length === 0}}">
+            <view class="no-databox bac pos_xcenter" style="background-image: url('https://image.kmeta.world/applet/images/nodatabox.png');top: 30%;"></view>
+            <view class="no-data">
+              暂无数据</view>
+
+          </block>
+
+          <view wx:else="">
+            <!-- 修改头像 -->
+            <block wx:if="{{show_virtually_info}}">
+              <view class="overlay">
+              </view>
+              <view class="close bac pos_center" bind:tap="hideVirtuallyInfo" style="background-image: url('https://image.kmeta.world/applet/images/goApp/close.png');top: 36%;left: 68%;width: 59.49rpx;height: 59.49rpx;"></view>
+              <view class="virtually_info bac pos_center" style="background-image: url('{{virtuallyPicture}}');  "></view>
+              <view class="seeNft  pos_xcenter" bind:tap="usedAvatar" style="top: 62%;">用作头像</view>
+            </block>
+
+            <!-- 列表 -->
+            <view class="virtually_down flex_x_center">
+              <view class="virtually_item flex_col_xcenter" bind:tap="showVirtuallyInfo" wx:for-item="virtuallyGoodsItem" wx:key="id" wx:for="{{virtuallyGoodsList}}" data-virtuallyPicture="{{virtuallyGoodsItem.goodsPicture}}">
+                <view class="virtually_item_up1 bac" style="background-image: url('{{virtuallyGoodsItem.goodsPicture}}');  ">
+                </view>
+                <view class="virtually_item_up1" style="backdrop-filter: blur(6rpx); "></view>
+                <view class="virtually_item_up2 bac pos_xcenter" style="background-image: url('{{virtuallyGoodsItem.goodsPicture}}');" data-id="{{virtuallyGoodsItem.id}}">
+                </view>
+                <view class="virtually_item_down pos_xcenter flex_col_xcenter">
+                  <text>Kmeta</text>
+                  <text style="margin-top: 6rpx;">元初头像</text>
+                </view>
+
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view style="width:100%;height: 100rpx;"></view>
+  </view>
+
+
+</view>

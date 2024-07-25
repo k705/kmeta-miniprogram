@@ -1,0 +1,45 @@
+<!--index.wxml-->
+
+
+<view class="contain" style="background-image: url('https://image.kmeta.world/applet/images/invite/bac.png')">
+
+
+  <!-- 头 -->
+  <view class="btn1" style="background-image: url('https://image.kmeta.world/applet/images/invite/tit1.png')"></view>
+
+  <!-- 立即邀请 -->
+  <view class="btn2" style="background-image: url('https://image.kmeta.world/applet/images/invite/btn.png')">
+    <button class="btn" open-type="share"></button>
+  </view>
+
+  <!-- 面对面立即邀请 -->
+  <view class="btn3" bindtap='navigateToFace' style="background-image: url('https://image.kmeta.world/applet/images/invite/tex.png')"></view>
+
+  <view class="foot" style="background-image: url('https://image.kmeta.world/applet/images/invite/bor.png');">
+    <view class="foot_text1">我的邀请
+    <text decode="{{true}}" style="font-size:20.51rpx;font-family: HarmonyOS_Sans_SC_Light;color: rgba(226, 222, 222, 0.884);">
+    （已获得&ensp;<text style="color: rgba(255, 255, 255, 1);font-size: 22rpx;">{{awardedBlockReward}}次区块购买机会</text>&ensp;和&ensp;<text style="color: rgba(255, 255, 255, 1);font-size: 22rpx;">{{awardedScoreReward}}K</text>）</text>
+    </view>
+    <view class="foot_text2 flex">
+      <view style="margin-left:46rpx">用户名</view>
+      <view style="margin-left:132rpx">邀请日期</view>
+    </view>
+    <!--  -->
+    <scroll-view class="foot_out" scroll-y="true" bindscrolltolower="pullUpLoad" wx:if="{{!showNoData}}">
+      <view class="foot_item flex" wx:for="{{ recordsList }}" wx:for-index="index" wx:key="id" item="{{ item }}">
+        <view class="foot_itemL ">{{ item.nickname }}</view>
+        <view class="foot_itemR flex_center">{{ item.registerDate }}</view>
+
+      </view>
+
+      <view class="no-more flex_center" wx:if="{{showNoMore}}">没有更多了~</view>
+
+    </scroll-view>
+
+    <view class="no-more-data flex_center" wx:else="{{showNoData}}">快去邀请好友吧！
+    </view>
+    <view class="sum flex_x_center">（累计邀请：{{inviteNumber}}人）</view>
+  </view>
+
+
+</view>

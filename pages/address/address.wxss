@@ -1,0 +1,52 @@
+/**index.wxss**/
+page {
+  font-family: HarmonyOS_Sans_SC;
+}
+
+.contain {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  color: aliceblue;
+}
+
+.contain_inner{
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 25.64rpx;
+}
+.head{
+  width: 100%;
+  margin-top:57rpx;
+  /* background-color: blueviolet; */
+  justify-content:space-between;
+}
+.text1{
+
+  color: rgba(111, 125, 145, 1);
+  font-size: 19.23rpx;
+}
+.text2{
+  color: rgba(79, 177, 239, 1);
+  font-size: 25.64rpx;
+
+  
+}
+.name{
+  height: 100rpx;
+  margin-top: 20rpx;
+  /* background-color: blueviolet; */
+}
+.name_left{
+  width: 120rpx;
+  /* background-color: blue; */
+}
+.name_right{
+  font-size:25.64rpx;
+color: rgba(255, 255, 255, .5);
+
+  
+}
